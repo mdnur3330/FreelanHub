@@ -1,5 +1,35 @@
+import { useContext } from 'react';
 import logo from '../assets/Grow Your Business With Us!.png'
+import { AuthContext } from '../providers/AuthProvider';
+import Swal from 'sweetalert2';
 const Login = () => {
+  const {signIN, signInWithGoogle} = useContext(AuthContext)
+
+  const handelLogin = async (e)=>{
+    e.preventDefault()
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    
+    try{
+      const result = await signIN(email,password)
+      console.log("after login",result);
+      form.reset()
+      
+    }catch(error){
+      console.log(error);
+      Swal.fire({
+              title: `🎉 Welcome Back`,
+              text: "You're now logged in. Manage your tasks, check your submissions, and keep growing your earnings.",
+              icon: "success",
+            });
+       Swal.fire({
+              text: error.message,
+              icon: "error",
+            });
+    }
+  }
+  
   return (
     <div className="relative">
       <img
@@ -24,64 +54,15 @@ const Login = () => {
                 The quick, brown fox <br className="hidden md:block" />
                 jumps over a lazy dog
               </h2>
-              <p className="max-w-xl mb-4 text-base text-gray-200 md:text-lg">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudan, totam rem aperiam, eaque ipsa
-                quae.
-              </p>
-              <a
-                href="/"
-                aria-label=""
-                className="inline-flex items-center font-semibold tracking-wider transition-colors duration-200 text-teal-accent-400 hover:text-teal-accent-700"
-              >
-                Learn more
-                <svg
-                  className="inline-block w-3 ml-2"
-                  fill="currentColor"
-                  viewBox="0 0 12 12"
-                >
-                  <path d="M9.707,5.293l-5-5A1,1,0,0,0,3.293,1.707L7.586,6,3.293,10.293a1,1,0,1,0,1.414,1.414l5-5A1,1,0,0,0,9.707,5.293Z" />
-                </svg>
-              </a>
+             
+             
             </div>
             <div className="w-full max-w-xl xl:px-8 xl:w-5/12">
               <div className="bg-white rounded shadow-2xl p-7 sm:p-10">
                 <h3 className="mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl">
-                  Sign up for updates
+                  Welcome Back
                 </h3>
-                <form>
-                  <div className="mb-1 sm:mb-2">
-                    <label
-                      htmlFor="firstName"
-                      className="inline-block mb-1 font-medium"
-                    >
-                      First name
-                    </label>
-                    <input
-                      placeholder="John"
-                      required
-                      type="text"
-                      className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-                      id="firstName"
-                      name="firstName"
-                    />
-                  </div>
-                  <div className="mb-1 sm:mb-2">
-                    <label
-                      htmlFor="lastName"
-                      className="inline-block mb-1 font-medium"
-                    >
-                      Last name
-                    </label>
-                    <input
-                      placeholder="Doe"
-                      required
-                      type="text"
-                      className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-                      id="lastName"
-                      name="lastName"
-                    />
-                  </div>
+                <form onSubmit={handelLogin}>
                   <div className="mb-1 sm:mb-2">
                     <label
                       htmlFor="email"
@@ -90,20 +71,36 @@ const Login = () => {
                       E-mail
                     </label>
                     <input
-                      placeholder="john.doe@example.org"
+                      placeholder="emaqil"
                       required
-                      type="text"
+                      type="email"
                       className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                       id="email"
                       name="email"
                     />
                   </div>
+                  <div className="mb-1 sm:mb-2">
+                    <label
+                      htmlFor="password"
+                      className="inline-block mb-1 font-medium"
+                    >
+                      Password
+                    </label>
+                    <input
+                      placeholder="password"
+                      required
+                      type="password"
+                      className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                      id="password"
+                      name="password"
+                    />
+                  </div>
                   <div className="mt-4 mb-2 sm:mb-4">
                     <button
                       type="submit"
-                      className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                      className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide  transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
                     >
-                      Subscribe
+                      Log In
                     </button>
                   </div>
                   <p className="text-xs text-gray-600 sm:text-sm">

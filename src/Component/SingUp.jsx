@@ -9,23 +9,24 @@ const SingUp = () => {
 
   const handelSignUp = async (e) => {
     e.preventDefault();
-    const from = e.target;
-    const img = from.image.files[0];
+    const form = e.target;
+    const img = form.image.files[0];
     const url = await getImg(img);
     console.log(url);
 
-    const name = from.name.value;
-    const email = from.email.value;
-    const password = from.password.value;
-    const userType = from.userType.value;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const userType = form.userType.value;
     console.log(name, email, password, userType);
 
     try {
       const result = await createUserByEmail(email, password);
       console.log(result);
+      form.reset()
       Swal.fire({
-        title: "Good job!",
-        text: "You clicked the button!",
+        title: `🎉 Welcome ${name}`,
+        text: "your account has been created!",
         icon: "success",
       });
     } catch (error) {
