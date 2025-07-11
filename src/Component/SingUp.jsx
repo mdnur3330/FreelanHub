@@ -3,6 +3,7 @@ import logo from "../assets/Grow Your Business With Us!.png";
 import { getImg } from "../Hooqs/getImg";
 import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
+import axiosSecure from "../Hooqs/useAxiosSecure";
 
 const SingUp = () => {
   const { createUserByEmail } = useContext(AuthContext);
@@ -17,13 +18,39 @@ const SingUp = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    const userType = form.userType.value;
-    console.log(name, email, password, userType);
+    const role = form.userType.value;
+
+    let coin = 0;
+    if (role === "Buyer") {
+      coin = 50;
+    } else if (role === "Worker") {
+      coin = 10;
+    }
+
+    console.log(name, email, password, role);
+
+    if (!url) {
+      Swal.fire({
+        text: "Please select an image.",
+        icon: "warning",
+      });
+      return;
+    }
+
+    const user = {
+      name,
+      email,
+      coin,
+      role,
+    };
 
     try {
       const result = await createUserByEmail(email, password);
+      const { data } = await axiosSecure.post("/user-data", user);
+      console.log(data);
+
       console.log(result);
-      form.reset()
+      form.reset();
       Swal.fire({
         title: `🎉 Welcome ${name}`,
         text: "your account has been created!",
@@ -82,7 +109,7 @@ const SingUp = () => {
                       type="text"
                       className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                       id="name"
-                      name="Name"
+                      name="name"
                     />
                   </div>
                   <div className="mb-1 sm:mb-2">
@@ -110,7 +137,7 @@ const SingUp = () => {
                     <input
                       placeholder="Email"
                       required
-                      type="text"
+                      type="email"
                       className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                       id="email"
                       name="email"
@@ -128,7 +155,9 @@ const SingUp = () => {
                       id=""
                       className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                     >
-                      <option>Select your user type</option>
+                      <option value="" disabled selected hidden>
+                        Select your user type
+                      </option>
                       <option value="Worker">Worker</option>
                       <option value="Buyer">Buyer</option>
                     </select>
@@ -155,7 +184,7 @@ const SingUp = () => {
                       type="submit"
                       className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none cursor-pointer"
                     >
-                      Sign Up
+                      Sing Up
                     </button>
                   </div>
                   <p className="text-xs text-gray-600 sm:text-sm">

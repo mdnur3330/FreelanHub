@@ -1,7 +1,10 @@
 import { useContext } from 'react';
 import logo from '../assets/Grow Your Business With Us!.png'
 import { AuthContext } from '../providers/AuthProvider';
+import { FcGoogle } from "react-icons/fc";
 import Swal from 'sweetalert2';
+import { Link } from 'react-router'
+import axios from 'axios';
 const Login = () => {
   const {signIN, signInWithGoogle} = useContext(AuthContext)
 
@@ -10,12 +13,15 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
+
     
     try{
       const result = await signIN(email,password)
       console.log("after login",result);
       form.reset()
-      
+
+
+    
     }catch(error){
       console.log(error);
       Swal.fire({
@@ -27,6 +33,28 @@ const Login = () => {
               text: error.message,
               icon: "error",
             });
+    }
+  }
+
+  const handelGooglLogin = async()=>{
+   
+    try{
+      const result = await signInWithGoogle()
+      const user = result.user
+
+       const userInfo = {
+     name: user?.displayName,
+     email: user?.email,
+      roll: "Worker",
+      coin: 10,
+    };
+    const { data } = await axios.post(
+        `http://localhost:4000/user-data`,
+        userInfo
+      );
+      console.log(data);
+    }catch(error){
+      console.log(error);
     }
   }
   
@@ -102,9 +130,16 @@ const Login = () => {
                     >
                       Log In
                     </button>
+                  <div className='text-center py-2'>
+                     <span>--------------</span> Or <span>--------------</span>  
                   </div>
+                  </div>
+                    <div>
+                     <button className='flex gap-3 mb-3 text-xl items-center justify-center w-full h-12 px-6  tracking-wide  transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none' onClick={handelGooglLogin}><FcGoogle size={30}/> Continue with Google</button>
+                    </div>
+                 
                   <p className="text-xs text-gray-600 sm:text-sm">
-                    We respect your privacy. Unsubscribe at any time.
+                  don't have any account plase <Link className='underline text-indigo-500 font-medium' to='/sign-up'>Registration</Link>
                   </p>
                 </form>
               </div>
