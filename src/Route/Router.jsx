@@ -11,6 +11,7 @@ import AvailableTask from "../Layout/Dashboard/Worker/AvailableTask";
 import UpdateTask from "../Layout/Dashboard/Buyer/UpdateTask";
 import TaskDetails from "../Layout/Dashboard/TaskDetails";
 import TaskToReview from "../Layout/Dashboard/Buyer/TaskToReview";
+import MyApprovedTask from "../Layout/Dashboard/Worker/MyApprovedTask";
 
 export const ruter = createBrowserRouter([
     {path:'/',
@@ -52,6 +53,10 @@ export const ruter = createBrowserRouter([
             },
             {path: '/dashboard/task-to-review/',
                 element: <TaskToReview></TaskToReview>
+            },
+            {
+                path: 'approved-task',
+                element: <MyApprovedTask></MyApprovedTask>
             }
         ]
     },

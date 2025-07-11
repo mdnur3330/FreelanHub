@@ -10,6 +10,11 @@ const WorkerHome = () => {
                     label='Available Task'
                     address='available-task'
                   />
+            <MenuItem
+                    icon={BsFillHouseAddFill}
+                    label='My Approved Task'
+                    address='approved-task'
+                  />
         </div>
     );
 };

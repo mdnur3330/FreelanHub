@@ -19,12 +19,9 @@ console.log(submissions);
         if (!user?.email) {
   return <p className="text-center text-gray-500">Loading user info...</p>;
 }
-
-
-
         try{
-            const res = await axiosSecure('/task-to-review',{
-                params: {
+          const res = await axiosSecure('/task-to-review',{
+          params: {
           email: user?.email,
           role: role?.role,
           status: 'pending'
@@ -36,7 +33,7 @@ console.log(submissions);
         }
     }
 getData()
-  },[user?.email])
+  },[user?.email, role?.role])
 
   const handleView = (submission) => {
     setSelectedSubmission(submission);
