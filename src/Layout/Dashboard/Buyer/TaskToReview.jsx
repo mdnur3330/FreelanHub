@@ -7,8 +7,8 @@ import { AuthContext } from "../../../providers/AuthProvider";
 import useRoll from "../../../Hooqs/getRol";
 
 const TaskToReview = () => {
-   const [roll] = useRoll()
-   console.log(roll);
+   const [role] = useRoll()
+   console.log(role);
    const [submissions, setSubmissions] = useState([])
     const {user} = useContext(AuthContext)
   const [selectedSubmission, setSelectedSubmission] = useState(null);
@@ -25,8 +25,8 @@ console.log(submissions);
         try{
             const res = await axiosSecure('/task-to-review',{
                 params: {
-          email: user.email,
-          role: userRole,
+          email: user?.email,
+          role: role?.role,
           status: 'pending'
   }
             })

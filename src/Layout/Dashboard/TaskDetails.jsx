@@ -1,12 +1,14 @@
 // src/pages/Dashboard/Worker/TaskDetails.jsx
-import React, { useEffect, useState, } from "react";
+import React, { useContext, useEffect, useState, } from "react";
 import { useParams } from "react-router";
 import Swal from "sweetalert2";
 import axiosSecure from "../../Hooqs/useAxiosSecure";
 import useRoll from "../../Hooqs/getRol";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const TaskDetails = () => {
-  const [roll] = useRoll()
+  const {user} = useContext(AuthContext)
+  const [role] = useRoll()
   const { id } = useParams();
   const [task, setTask] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -35,8 +37,10 @@ const TaskDetails = () => {
       taskId: task._id.toString(),
       task_title: task.task_title,
       payable_amount: payableAmount,
-      worker_name: roll.user,
+      worker_name: role.user,
+      worker_email: user?.email,
       buyer_email : task.buyer,
+      buyer_name: task.buyer_name,
       required_workers_left: task.worker,
       submissoin_data: e.target.submissoinData.value,
       status: "pending",

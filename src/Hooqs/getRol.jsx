@@ -17,7 +17,7 @@ const useRoll = () => {
     }
       if (user) {
         try {
-          const res = await axiosSecure(`/coin-roll/${user.email}`);
+          const res = await axiosSecure(`/coin-role/${user.email}`);
           setRoll(res.data)
           console.log(res.data);
         } catch (error) {
