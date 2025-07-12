@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut} from 'firebase/auth';
 import { app } from '../Component/firebase';
+import axiosSecure from '../Hooqs/useAxiosSecure';
 const auth = getAuth(app)
 
 export const AuthContext = createContext()
@@ -9,6 +10,7 @@ const provider = new GoogleAuthProvider()
 
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null)
+    const [userData, setUserData] = useState(null);
 
     const createUserByEmail = (email,password)=> {
         return createUserWithEmailAndPassword(auth,email,password)
@@ -22,9 +24,11 @@ const AuthProvider = ({children}) => {
         return signInWithPopup(auth, provider)
     }
 
-    // const updateUserProfile = ()=>{
-    //     return updateProfile(auth.currentUser,{})
-    // }
+     const refetchUser = async () => {
+    if (!user?.email) return;
+    const res = await axiosSecure.get(`/user-details/${user.email}`);
+    setUserData(res.data);
+  };
 
     const logOut = ()=>{
         return signOut(auth)
@@ -46,7 +50,9 @@ const AuthProvider = ({children}) => {
         signIN,
         signInWithGoogle,
         logOut,
-        user
+        refetchUser,
+        user,
+        userData
     }
     return (
         <AuthContext.Provider value={userInfo}>

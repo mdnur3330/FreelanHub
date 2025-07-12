@@ -1,38 +1,83 @@
-import React from 'react';
-import { useNavigate } from 'react-router';
+// import { useNavigate } from "react-router";
+// const coinOptions = [
+//   { coins: 150, price: 10 },
+//   { coins: 500, price: 20 },
+//   { coins: 1000, price: 35 },
+//   { coins: 10, price: 1 },
+// ];
+
+// const PurchaseCoin = () => {
+//   const navigate = useNavigate();
+
+//   const handlePurchase = (option) => {
+//     navigate(`/payment/${option.price}`, { state: option });
+//   };
+
+//   return (
+//     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto p-6">
+//       {coinOptions.map((option, idx) => (
+//         <div
+//           key={idx}
+//           onClick={() => handlePurchase(option)}
+//           className="cursor-pointer bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition"
+//         >
+//           <h2 className="text-xl font-bold text-blue-600">{option.coins} Coins</h2>
+//           <p className="text-gray-600 mt-2">= ${option.price}</p>
+//         </div>
+//       ))}
+
+//       <div>
+    
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default PurchaseCoin;
+import { useNavigate } from "react-router";
+import { FaCoins } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const coinOptions = [
-  { coins: 10, price: 1 },
   { coins: 150, price: 10 },
   { coins: 500, price: 20 },
   { coins: 1000, price: 35 },
+  { coins: 10, price: 1 },
 ];
 
 const PurchaseCoin = () => {
   const navigate = useNavigate();
 
-  const handleSelect = (coins, price) => {
-    navigate(`/payment/${coins}/${price}`);
+  const handlePurchase = (option) => {
+    navigate(`/dashboard/purchase-coin/payment/${option.price}`, { state: option });
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 p-6">
-      <h2 className="text-3xl font-bold text-center mb-10 text-gray-700">Purchase Coins</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-        {coinOptions.map(({ coins, price }) => (
-          <div
-            key={coins}
-            className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer border border-gray-100"
-            onClick={() => handleSelect(coins, price)}
+    <div className="min-h-[80vh] bg-gradient-to-b from-blue-50 to-white py-10 px-4">
+      <h2 className="text-3xl font-bold text-center text-blue-700 mb-10">
+        Purchase Coins
+      </h2>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+        {coinOptions.map((option, idx) => (
+          <motion.div
+            key={idx}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => handlePurchase(option)}
+            className="bg-white cursor-pointer p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all border hover:border-blue-600 group"
           >
-            <h3 className="text-2xl font-bold text-blue-600 text-center">{coins} Coins</h3>
-            <p className="text-lg text-center mt-2 text-gray-700">= ${price}</p>
-            <div className="mt-4 text-center">
-              <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-xl transition">
+            <div className="flex flex-col items-center text-center space-y-4">
+              <FaCoins className="text-4xl text-yellow-400 group-hover:text-yellow-500 transition" />
+              <h3 className="text-2xl font-semibold text-gray-800 group-hover:text-blue-600">
+                {option.coins} Coins
+              </h3>
+              <p className="text-lg text-gray-500">${option.price}</p>
+              <button className="mt-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full transition font-medium">
                 Buy Now
               </button>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

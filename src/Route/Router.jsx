@@ -13,6 +13,7 @@ import TaskToReview from "../Layout/Dashboard/Buyer/TaskToReview";
 import MyApprovedTask from "../Layout/Dashboard/Worker/MyApprovedTask";
 import AdminOverview from "../Layout/Dashboard/Admin/AdminOverview";
 import SignUp from "../Component/SignUp";
+import Payment from "../Layout/Dashboard/Buyer/Payment";
 
 export const ruter = createBrowserRouter([
     {path:'/',
@@ -29,6 +30,10 @@ export const ruter = createBrowserRouter([
         children:[
             {path: 'dashboard',
                 element:<Hero></Hero>
+            },
+            {
+                path: "/dashboard/purchase-coin/payment/:price",
+                element: <Payment></Payment>
             },
             {
                 path: 'add-task',
