@@ -13,12 +13,14 @@ import TaskDetails from "../Layout/Dashboard/TaskDetails";
 import TaskToReview from "../Layout/Dashboard/Buyer/TaskToReview";
 import MyApprovedTask from "../Layout/Dashboard/Worker/MyApprovedTask";
 import AdminOverview from "../Layout/Dashboard/Admin/AdminOverview";
+import Home from "../Page/Home";
 
 export const ruter = createBrowserRouter([
     {path:'/',
         element: <Root></Root>,
         children:[
             {index:true,
+            element: <Home></Home>
             }
         ]
     },
