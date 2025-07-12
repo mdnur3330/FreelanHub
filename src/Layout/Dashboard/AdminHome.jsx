@@ -1,9 +1,15 @@
 import React from 'react';
+import { BsFillHouseAddFill } from 'react-icons/bs';
+import MenuItem from './MenuItem';
 
 const AdminHome = () => {
     return (
         <div>
-            this is Admin home
+            <MenuItem
+                    icon={BsFillHouseAddFill}
+                    label='dmin Overview'
+                    address='admin-overview'
+                  />
         </div>
     );
 };
