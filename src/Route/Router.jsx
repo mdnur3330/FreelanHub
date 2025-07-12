@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router";
 import Root from "../Layout/Root";
 import Login from "../Component/Login";
-import SingUp from "../Component/SingUp";
 import DashboardLayout from "../Layout/DashboardLayout";
 import Hero from "../Page/Hero";
 import MyTasks from "../Layout/Dashboard/Buyer/MyTasks";
@@ -13,14 +12,14 @@ import TaskDetails from "../Layout/Dashboard/TaskDetails";
 import TaskToReview from "../Layout/Dashboard/Buyer/TaskToReview";
 import MyApprovedTask from "../Layout/Dashboard/Worker/MyApprovedTask";
 import AdminOverview from "../Layout/Dashboard/Admin/AdminOverview";
-import Home from "../Page/Home";
+import SignUp from "../Component/SignUp";
 
 export const ruter = createBrowserRouter([
     {path:'/',
         element: <Root></Root>,
         children:[
             {index:true,
-            element: <Home></Home>
+       
             }
         ]
     },
@@ -72,7 +71,7 @@ export const ruter = createBrowserRouter([
         element:<Login></Login>
     },
     {
-        path: "sing-up",
-        element: <SingUp></SingUp>
+        path: "sign-up",
+        element: <SignUp></SignUp>
     }
 ])
