@@ -14,6 +14,7 @@ import MyApprovedTask from "../Layout/Dashboard/Worker/MyApprovedTask";
 import AdminOverview from "../Layout/Dashboard/Admin/AdminOverview";
 import SignUp from "../Component/SignUp";
 import Payment from "../Layout/Dashboard/Buyer/Payment";
+import BuyerPaymentHistory from "../Layout/Dashboard/Buyer/PaymentHistory";
 
 export const ruter = createBrowserRouter([
     {path:'/',
@@ -50,6 +51,10 @@ export const ruter = createBrowserRouter([
             {
                 path: 'available-task',
                 element: <AvailableTask></AvailableTask>
+            },
+            {
+                path:'paymenthistory',
+                element: <BuyerPaymentHistory></BuyerPaymentHistory>
             },
             {
                 path: '/dashboard/update-task/:id',

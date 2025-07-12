@@ -19,6 +19,7 @@ const BuyerHome = () => {
       />
       <MenuItem icon={MdHomeWork} label='Task To Review' address='task-to-review' />
       <MenuItem icon={MdHomeWork} label='Purchase Coin' address='purchase-coin' />
+      <MenuItem icon={MdHomeWork} label='Payment History' address='paymenthistory' />
     
     </>
         </div>
