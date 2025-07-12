@@ -161,7 +161,7 @@ const SignUp = () => {
           <button
   type="submit"
   disabled={loading}
-  className={`w-full py-3 rounded-lg text-white font-semibold text-lg transition flex justify-center items-center ${
+  className={`w-full py-3 rounded-lg text-white font-semibold text-lg transition flex justify-center items-center cursor-pointer ${
     loading ? "bg-gray-400 cursor-not-allowed" : "bg-purple-600 hover:bg-purple-700"
   }`}
 >

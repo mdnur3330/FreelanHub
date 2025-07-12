@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { } from 'react';
 import { useEffect } from 'react';
 import axiosSecure from '../Hooqs/useAxiosSecure';
 import { useState } from 'react';
+
 
 const Home = () => {
     const [topWorkers, setTopWorkers] = useState([])
@@ -27,7 +28,7 @@ const Home = () => {
                             #{index + 1} {worker.name || 'নাম নেই'}
                         </h3>
                         <p className="mt-2 text-gray-700">ইমেইল: {worker.email}</p>
-                        <p className="mt-1 text-gray-800 font-bold">💰 কয়েন: {worker.coins}</p>
+                        <p className="mt-1 text-gray-800 font-bold">💰 কয়েন: {worker?.coin}</p>
                     </div>
                 ))}
             </div>
