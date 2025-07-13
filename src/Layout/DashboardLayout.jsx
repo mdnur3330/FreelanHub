@@ -103,8 +103,10 @@ import { AuthContext } from "../providers/AuthProvider";
 const DashboardLayout = () => {
   const { userData, refetchUser, user } = useContext(AuthContext);
   useEffect(()=>{
-    refetchUser()
-  },[userData?.coin])
+   refetchUser()
+  },[refetchUser])
+
+
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
       {/* Header */}
@@ -120,7 +122,7 @@ const DashboardLayout = () => {
             <span className="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
           </button>
 
-          {user ? (
+          {userData ? (
             <div className="flex items-center gap-3">
               <img
                 src={userData?.image}

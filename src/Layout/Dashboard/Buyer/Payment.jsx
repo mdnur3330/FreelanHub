@@ -1,9 +1,9 @@
 import { useLocation } from "react-router";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import CheckoutForm from "./CheckoutForm"; // You'll create this next
+import CheckoutForm from "./CheckoutForm"; 
 
-const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PK); // from .env
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PK); 
 
 const Payment = () => {
   const { state } = useLocation();

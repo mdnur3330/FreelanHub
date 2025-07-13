@@ -15,6 +15,8 @@ import AdminOverview from "../Layout/Dashboard/Admin/AdminOverview";
 import SignUp from "../Component/SignUp";
 import Payment from "../Layout/Dashboard/Buyer/Payment";
 import BuyerPaymentHistory from "../Layout/Dashboard/Buyer/PaymentHistory";
+import WithdrawForm from "../Layout/Dashboard/Worker/WithDrawalForm";
+import WithdrawRequest from "../Layout/Dashboard/Admin/WithdrawRequest";
 
 export const ruter = createBrowserRouter([
     {path:'/',
@@ -49,6 +51,10 @@ export const ruter = createBrowserRouter([
                 element: <PurchaseCoin></PurchaseCoin>
             },
             {
+                path: 'withDrawal-form',
+                element: <WithdrawForm></WithdrawForm>
+            },
+            {
                 path: 'available-task',
                 element: <AvailableTask></AvailableTask>
             },
@@ -73,6 +79,10 @@ export const ruter = createBrowserRouter([
             {
                 path: 'admin-overview',
                 element: <AdminOverview></AdminOverview>
+            },
+            {
+                path: 'withdraw-request',
+                element: <WithdrawRequest></WithdrawRequest>
             }
         ]
     },

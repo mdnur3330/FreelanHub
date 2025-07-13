@@ -7,8 +7,13 @@ const AdminHome = () => {
         <div>
             <MenuItem
                     icon={BsFillHouseAddFill}
-                    label='admin Overview'
+                    label='Admin Overview'
                     address='admin-overview'
+                  />
+            <MenuItem
+                    icon={BsFillHouseAddFill}
+                    label='Withdraw Request'
+                    address='withdraw-request'
                   />
         </div>
     );
