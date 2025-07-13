@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axiosSecure from "../../../Hooqs/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const WithdrawRequest = () => {
     const [withdrawData, setWithdrawData] = useState([])
 
-
+  
     useEffect(()=>{
         const getData = async ()=>{
             try{
@@ -17,6 +18,20 @@ const WithdrawRequest = () => {
         }
        getData()
     },[])
+
+
+     const handelApprovePayment = async (id,email,coin,amount)=>{
+      console.log(amount,email,coin);
+            try{
+           await axiosSecure.patch(`/withdraw-status/${id}`,{status: "approved", email, coin,amount})
+               Swal.fire(
+                      `🎉 Approved Payment Request`
+                    );
+                setWithdrawData((prev) => prev.filter((task) => task._id !== id));
+            }catch(error){
+              console.log(error);
+            }
+        }
 
 
   return (
@@ -48,8 +63,8 @@ const WithdrawRequest = () => {
                   {req.status}
                 </td>
                 <td className="px-4 py-3">
-                  <button
-                    className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition"
+                  <button onClick={()=>handelApprovePayment(req._id, req.workerEmail, req.withdrawalCoin, req.withdrawal_amount)}
+                    className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition cursor-pointer"
                   >
                     Payment Success
                   </button>

@@ -28,7 +28,7 @@ const WithdrawForm = () => {
     const withdrawInfo = {
       workerName: role?.user,
       workerEmail: role?.email,
-      withdrawalCoin: e.target.withdrawalCoin.value,
+      withdrawalCoin: parseInt(e.target.withdrawalCoin.value),
       withdrawal_amount: total,
       payment_system: e.target.paymentSystem.value,
       status: "pending",

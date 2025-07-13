@@ -67,7 +67,7 @@ const CheckoutForm = ({ coins, price }) => {
       <button
         type="submit"
         disabled={!stripe || loading}
-        className={`w-full py-3 rounded-lg text-white font-semibold text-lg transition flex justify-center items-center ${
+        className={`w-full py-3 cursor-pointer rounded-lg text-white font-semibold text-lg transition flex justify-center items-center ${
           loading
             ? "bg-gray-400 cursor-not-allowed"
             : "bg-purple-600 hover:bg-purple-700"

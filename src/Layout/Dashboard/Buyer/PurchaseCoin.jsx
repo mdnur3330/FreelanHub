@@ -1,39 +1,4 @@
-// import { useNavigate } from "react-router";
-// const coinOptions = [
-//   { coins: 150, price: 10 },
-//   { coins: 500, price: 20 },
-//   { coins: 1000, price: 35 },
-//   { coins: 10, price: 1 },
-// ];
 
-// const PurchaseCoin = () => {
-//   const navigate = useNavigate();
-
-//   const handlePurchase = (option) => {
-//     navigate(`/payment/${option.price}`, { state: option });
-//   };
-
-//   return (
-//     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto p-6">
-//       {coinOptions.map((option, idx) => (
-//         <div
-//           key={idx}
-//           onClick={() => handlePurchase(option)}
-//           className="cursor-pointer bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition"
-//         >
-//           <h2 className="text-xl font-bold text-blue-600">{option.coins} Coins</h2>
-//           <p className="text-gray-600 mt-2">= ${option.price}</p>
-//         </div>
-//       ))}
-
-//       <div>
-    
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default PurchaseCoin;
 import { useNavigate } from "react-router";
 import { FaCoins } from "react-icons/fa";
 import { motion } from "framer-motion";
@@ -73,7 +38,7 @@ const PurchaseCoin = () => {
                 {option.coins} Coins
               </h3>
               <p className="text-lg text-gray-500">${option.price}</p>
-              <button className="mt-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full transition font-medium">
+              <button className="mt-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full transition font-medium cursor-pointer">
                 Buy Now
               </button>
             </div>

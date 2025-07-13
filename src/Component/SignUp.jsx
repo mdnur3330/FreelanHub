@@ -36,6 +36,7 @@ const SignUp = () => {
       role: userType,
       coin,
       image: imageUrl,
+      wallet: 0,
     };
 
     try {
