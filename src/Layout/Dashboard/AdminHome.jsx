@@ -15,6 +15,11 @@ const AdminHome = () => {
                     label='Withdraw Request'
                     address='withdraw-request'
                   />
+            <MenuItem
+                    icon={BsFillHouseAddFill}
+                    label='Manage Users'
+                    address='manage-users'
+                  />
         </div>
     );
 };

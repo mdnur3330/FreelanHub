@@ -17,6 +17,7 @@ import Payment from "../Layout/Dashboard/Buyer/Payment";
 import BuyerPaymentHistory from "../Layout/Dashboard/Buyer/PaymentHistory";
 import WithdrawForm from "../Layout/Dashboard/Worker/WithDrawalForm";
 import WithdrawRequest from "../Layout/Dashboard/Admin/WithdrawRequest";
+import ManageUsers from "../Layout/Dashboard/Admin/ManageUsers";
 
 export const ruter = createBrowserRouter([
     {path:'/',
@@ -83,6 +84,10 @@ export const ruter = createBrowserRouter([
             {
                 path: 'withdraw-request',
                 element: <WithdrawRequest></WithdrawRequest>
+            },
+            {
+                path: 'manage-users',
+                element: <ManageUsers></ManageUsers>
             }
         ]
     },
