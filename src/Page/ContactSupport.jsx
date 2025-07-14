@@ -1,123 +1,78 @@
 import React from "react";
-import {
-  FaEnvelope,
-  FaPhoneAlt,
-  FaFacebook,
-  FaTwitter,
-  FaLinkedin,
-} from "react-icons/fa";
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaGlobe } from "react-icons/fa";
 
 const ContactSupport = () => {
   return (
-    <section className="bg-gradient-to-b from-white to-blue-50 py-20 px-6 md:px-24 text-gray-800">
+    <section className="bg-gray-50 py-16 px-4 md:px-20">
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 text-gray-900">Contact & Support</h2>
-          <p className="text-gray-600 text-lg">
-            Reach out to us anytime. We're here to help you succeed on TaskBazaar.
-          </p>
-        </div>
+        <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Contact Us</h2>
 
-        {/* Form & Info */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20 items-start">
-          {/* Contact Form */}
-          <div className="bg-white shadow-lg rounded-2xl p-8 md:p-10 border-t-4 border-blue-600">
-            <h3 className="text-2xl font-semibold mb-6 text-blue-600">Send us a message</h3>
+        {/* Contact Form + Map */}
+        <div className="grid grid-cols-1 md:grid-cols-2 bg-white rounded-xl shadow-md overflow-hidden mb-16">
+          {/* Form */}
+          <div className="p-8 bg-gray-100">
             <form className="space-y-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <input
+                  type="text"
+                  placeholder="Full Name"
+                  className="w-full p-3 border border-gray-300 rounded-md focus:outline-blue-500"
+                />
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  className="w-full p-3 border border-gray-300 rounded-md focus:outline-blue-500"
+                />
+              </div>
               <input
                 type="text"
-                placeholder="Your Name"
-                className="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-400 outline-none"
-              />
-              <input
-                type="email"
-                placeholder="Your Email"
-                className="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-400 outline-none"
+                placeholder="Subject"
+                className="w-full p-3 border border-gray-300 rounded-md focus:outline-blue-500"
               />
               <textarea
                 rows="4"
-                placeholder="Your Message"
-                className="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-400 outline-none"
+                placeholder="Message"
+                className="w-full p-3 border border-gray-300 rounded-md focus:outline-blue-500"
               ></textarea>
               <button
                 type="submit"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition w-full font-medium"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md transition"
               >
                 Send Message
               </button>
             </form>
           </div>
 
-          {/* Contact Info */}
-          <div className="flex flex-col justify-center gap-6 text-gray-700 text-base">
-            <div className="flex items-start gap-4">
-              <FaEnvelope className="text-xl text-blue-500 mt-1" />
-              <div>
-                <p className="font-semibold">Email</p>
-                <p>support@taskbazaar.com</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <FaPhoneAlt className="text-xl text-green-500 mt-1" />
-              <div>
-                <p className="font-semibold">Phone</p>
-                <p>+880 1234 567890</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="text-xl font-semibold text-purple-600">Social</div>
-              <div className="flex gap-4 text-xl">
-                <a href="#" className="text-blue-600 hover:text-blue-800 transition">
-                  <FaFacebook />
-                </a>
-                <a href="#" className="text-sky-400 hover:text-sky-600 transition">
-                  <FaTwitter />
-                </a>
-                <a href="#" className="text-blue-700 hover:text-blue-900 transition">
-                  <FaLinkedin />
-                </a>
-              </div>
-            </div>
+          {/* Map */}
+          <div className="w-full h-full">
+            <iframe
+              title="Map"
+              src="https://maps.google.com/maps?q=Dhaka&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              className="w-full h-full min-h-[350px] border-0"
+              loading="lazy"
+              allowFullScreen
+            ></iframe>
           </div>
         </div>
 
-        {/* FAQ Section */}
-        <div>
-          <h3 className="text-3xl font-bold text-center mb-10 text-gray-900">Frequently Asked Questions</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {[
-              {
-                question: "How do I post a task?",
-                answer:
-                  "Just sign in as a Buyer, go to your dashboard, and click on “Post Task”. Fill in the task details and submit.",
-              },
-              {
-                question: "How do I earn coins?",
-                answer:
-                  "You earn coins by completing tasks as a Worker. The more you complete, the more you earn!",
-              },
-              {
-                question: "Can I withdraw my earnings?",
-                answer:
-                  "Yes. Go to your wallet and click “Withdraw”. Make sure you’ve met the minimum withdrawal limit.",
-              },
-              {
-                question: "Is TaskBazaar free to use?",
-                answer:
-                  "Yes! Signing up and browsing tasks is completely free. You can buy coins for additional features.",
-              },
-            ].map((faq, index) => (
-              <div
-                key={index}
-                className="bg-white shadow hover:shadow-md p-6 rounded-xl border border-gray-200 transition"
-              >
-                <h4 className="text-lg font-semibold mb-2 text-blue-700">{faq.question}</h4>
-                <p className="text-gray-600">{faq.answer}</p>
-              </div>
-            ))}
+        {/* Contact Info */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-center text-gray-700">
+          <div className="flex flex-col items-center gap-2">
+            <FaMapMarkerAlt className="text-2xl text-blue-600" />
+            <p className="text-sm">Babuganj,Barisal,Banglades</p>
+          </div>
+          <div className="flex flex-col items-center gap-2">
+            <FaPhoneAlt className="text-2xl text-blue-600" />
+            <p className="text-sm">+8801890536220</p>
+          </div>
+          <div className="flex flex-col items-center gap-2">
+            <FaEnvelope className="text-2xl text-blue-600" />
+            <p className="text-sm">nuralom.web@gmail.com</p>
+          </div>
+          <div className="flex flex-col items-center gap-2">
+            <FaGlobe className="text-2xl text-blue-600" />
+            <p className="text-sm">https://zingy-alpaca-0e447b.netlify.app/</p>
           </div>
         </div>
       </div>
