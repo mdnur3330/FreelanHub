@@ -18,22 +18,21 @@ import BuyerPaymentHistory from "../Layout/Dashboard/Buyer/PaymentHistory";
 import WithdrawForm from "../Layout/Dashboard/Worker/WithDrawalForm";
 import WithdrawRequest from "../Layout/Dashboard/Admin/WithdrawRequest";
 import ManageUsers from "../Layout/Dashboard/Admin/ManageUsers";
+import ManageTask from "../Layout/Dashboard/Admin/ManageTask";
+import DashBoardProfile from "../Layout/Dashboard/DashBoardProfile";
+import MySubmisson from "../Layout/Dashboard/Worker/MySubmission";
 
 export const ruter = createBrowserRouter([
     {path:'/',
-        element: <Root></Root>,
-        children:[
-            {index:true,
-       
-            }
-        ]
+     element: <Root></Root>,
+
     },
     {
         path: '/dashboard',
         element: <DashboardLayout></DashboardLayout>,
         children:[
-            {path: 'dashboard',
-                element:<Hero></Hero>
+            {index: true,
+                element:<DashBoardProfile></DashBoardProfile>
             },
             {
                 path: "/dashboard/purchase-coin/payment/:price",
@@ -58,6 +57,10 @@ export const ruter = createBrowserRouter([
             {
                 path: 'available-task',
                 element: <AvailableTask></AvailableTask>
+            },
+            {
+                path: 'my-submisson',
+                element: <MySubmisson></MySubmisson>
             },
             {
                 path:'paymenthistory',
@@ -88,6 +91,10 @@ export const ruter = createBrowserRouter([
             {
                 path: 'manage-users',
                 element: <ManageUsers></ManageUsers>
+            },
+            {
+                path: 'manage-task',
+                element: <ManageTask></ManageTask>
             }
         ]
     },

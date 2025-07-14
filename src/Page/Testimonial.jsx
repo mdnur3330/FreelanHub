@@ -1,0 +1,79 @@
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+import { FaQuoteLeft } from "react-icons/fa";
+
+const testimonials = [
+  {
+    id: 1,
+    name: "Mohammad Rahim",
+    role: "Frontend Developer",
+    image: "https://i.ibb.co/DgFMpNv/profile-placeholder.jpg",
+    review:
+      "TaskBazaar helped me improve my skills and earn from real-world projects. The platform is clean, intuitive, and highly effective!",
+  },
+  {
+    id: 2,
+    name: "Fatema Akter",
+    role: "UI Designer",
+    image: "https://i.ibb.co/DgFMpNv/profile-placeholder.jpg",
+    review:
+      "The quick support and coin-based reward system make this my favorite freelancing platform!",
+  },
+  {
+    id: 3,
+    name: "John Doe",
+    role: "Fullstack Engineer",
+    image: "https://i.ibb.co/DgFMpNv/profile-placeholder.jpg",
+    review:
+      "Everything is streamlined and fast. TaskBazaar is truly revolutionary.",
+  },
+];
+
+const TestimonialSection = () => {
+  return (
+    <section className="bg-gradient-to-br from-blue-50 to-white py-16 px-4">
+      <div className="max-w-4xl mx-auto text-center">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-blue-700 mb-3">
+          What Our Users Say
+        </h2>
+        <p className="text-gray-600 mb-8 max-w-xl mx-auto">
+          Hear from the talented workers and satisfied buyers who use TaskBazaar.
+        </p>
+
+        <Swiper
+          modules={[Pagination, Autoplay]}
+          spaceBetween={30}
+          slidesPerView={1}
+          loop={true}
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 4000 }}
+        >
+          {testimonials.map(({ id, name, role, image, review }) => (
+            <SwiperSlide key={id}>
+              <div className="bg-white rounded-xl p-6 shadow-lg max-w-2xl mx-auto">
+                <FaQuoteLeft className="text-blue-500 text-3xl mb-4" />
+                <p className="text-gray-700 italic mb-6">"{review}"</p>
+                <div className="flex items-center justify-center gap-4">
+                  <img
+                    src={image}
+                    alt={name}
+                    className="w-14 h-14 rounded-full border-2 border-blue-600"
+                  />
+                  <div className="text-left">
+                    <h4 className="font-semibold text-blue-700">{name}</h4>
+                    <p className="text-sm text-gray-500">{role}</p>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </section>
+  );
+};
+
+export default TestimonialSection;

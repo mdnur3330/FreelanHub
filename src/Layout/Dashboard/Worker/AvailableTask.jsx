@@ -29,7 +29,7 @@ const AvailableTask = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {tasks.map((task) => (
           <div key={task._id} className="border rounded-lg shadow-lg p-4 bg-white">
-            {/* <img src={task.task_image_url} alt="task" className="h-40 w-full object-cover rounded" /> */}
+            <img src={task.task_image_url} alt="task" className="h-40 w-full object-cover rounded" />
             <h3 className="text-xl font-semibold mt-2">{task.task_title}</h3>
             <p className="text-sm text-gray-600 mt-1">By: {task.Buyer_name}</p>
             <p className="mt-1">Pay: <span className="text-green-600 font-semibold">{task.payable_amount} coins</span></p>

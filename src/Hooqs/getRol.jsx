@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-// import axiosSecure from "./useAxiosSecure";
 import { AuthContext } from "../providers/AuthProvider";
 import axiosSecure from "./useAxiosSecure";
 

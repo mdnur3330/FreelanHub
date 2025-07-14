@@ -1,25 +1,25 @@
 import React from 'react';
 import MenuItem from './MenuItem';
-import { BsFillHouseAddFill } from 'react-icons/bs';
-import { MdHomeWork, MdOutlineManageHistory } from 'react-icons/md';
+
+import { MdAddCircleOutline, MdMonetizationOn, MdPendingActions, MdReceiptLong, MdTaskAlt } from 'react-icons/md';
 
 const BuyerHome = () => {
     return (
         <div>
              <>
                <MenuItem
-        icon={MdOutlineManageHistory}
+        icon={MdAddCircleOutline}
         label='Add New Task'
         address='add-task'
       />
       <MenuItem
-        icon={BsFillHouseAddFill}
+        icon={MdTaskAlt}
         label='My Tasks'
         address='my-task'
       />
-      <MenuItem icon={MdHomeWork} label='Task To Review' address='task-to-review' />
-      <MenuItem icon={MdHomeWork} label='Purchase Coin' address='purchase-coin' />
-      <MenuItem icon={MdHomeWork} label='Payment History' address='paymenthistory' />
+      <MenuItem icon={MdPendingActions} label='Task To Review' address='task-to-review' />
+      <MenuItem icon={MdMonetizationOn} label='Purchase Coin' address='purchase-coin' />
+      <MenuItem icon={MdReceiptLong} label='Payment History' address='paymenthistory' />
     
     </>
         </div>

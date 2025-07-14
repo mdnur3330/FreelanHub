@@ -3,10 +3,10 @@ import useRoll from "../../../Hooqs/getRol";
 import Swal from "sweetalert2";
 import axiosSecure from "../../../Hooqs/useAxiosSecure";
 import { AuthContext } from "../../../providers/AuthProvider";
-// import { useNavigate } from 'react-router';
+import { useNavigate } from "react-router";
 
 const AddNewTasks = () => {
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
   const { user } = useContext(AuthContext);
   const [roll] = useRoll();
   const coin = roll?.coin;
@@ -22,24 +22,38 @@ const AddNewTasks = () => {
     taskData.total = total;
     taskData.buyer = user.email;
     taskData.buyer_name = roll.user;
+       console.log(taskData);
 
     if (total > coin) {
       Swal.fire({
-        text: "Not available Coin.  Purchase Coin",
+        title: "Insufficient Coin",
+        text: "Not available Coin. Purchase Coin",
         icon: "warning",
+        confirmButtonText: "Go to Purchase Page",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/dashboard/purchase-coin");
+        }
       });
+      return;
     }
 
     try {
       const result = await axiosSecure.post("/add-task", taskData);
       console.log(result);
+            Swal.fire({
+        title: "Task Added",
+        text: "Your task has been successfully created.",
+        icon: "success",
+      });
+      form.reset();
     } catch (error) {
       console.log(error);
     }
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-xl mt-10">
+    <div className="max-w-3xl mx-auto px-6 pb-6 bg-white rounded-xl">
       <h2 className="text-2xl font-bold mb-6 text-center text-blue-700">
         Create a New Task
       </h2>

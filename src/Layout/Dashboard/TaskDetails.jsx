@@ -44,6 +44,7 @@ const TaskDetails = () => {
       required_workers_left: task.worker,
       submissoin_data: e.target.submissoinData.value,
       status: "pending",
+      taskImg: task.task_image_url
     };
     
 
