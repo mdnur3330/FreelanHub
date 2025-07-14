@@ -1,4 +1,3 @@
-
 import { useNavigate } from "react-router";
 import { FaCoins, FaArrowRight } from "react-icons/fa";
 import { motion } from "framer-motion";
