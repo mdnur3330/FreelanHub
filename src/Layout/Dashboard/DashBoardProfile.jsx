@@ -3,32 +3,61 @@ import {
   FaUserShield,
   FaTasks,
   FaClipboardList,
-  FaCoins,
   FaMoneyBillWave,
   FaUsers,
   FaUserEdit,
   FaWallet,
 } from "react-icons/fa";
 import useRoll from "../../Hooqs/getRol";
+import { useEffect } from "react";
+import axiosSecure from "../../Hooqs/useAxiosSecure";
+import { useState } from "react";
 
-const AchievementSection = () => {
+const DashBoardProfile = () => {
   const [user] = useRoll();
-  console.log(user);
+  const [state, setState] = useState()
+  console.log(state);
+ 
+    useEffect(()=>{
+        if(user?.role === "Buyer"){
+            const getStates = async ()=>{
+                const res = await axiosSecure('/buyer-stats')
+                setState(res.data)
+            }
+            getStates()
+        }else{
+            return 
+        }
 
+    },[user?.role])
+
+
+    useEffect(()=>{
+        if(user?.role === "Worker"){
+            const getStates = async ()=>{
+                const res = await axiosSecure('/worker-stats')
+                setState(res.data)
+            }
+            getStates()
+        }else{
+            return 
+        }
+
+    },[user?.role])
+console.log(state);
   // Define role-based items
   const roleItems = {
     Worker: [
-      { label: "Home", icon: FaUserShield, link: "/" },
-      { label: "Approved Task List", icon: FaTasks, link: "/dashboard/approved-task" },
-      { label: "My Submissions", icon: FaClipboardList, link: "/dashboard/submissions" },
+      { label: "Total Submission", task:state?.allTask, icon: FaUserShield},
+      { label: "Total pending submission", task:state?.pendingTask, icon: FaTasks},
+      { label: "Total Coin Earning", task:state?.totalEarning, icon: FaClipboardList},
       { label: "Withdrawals", icon: FaMoneyBillWave, link: "/dashboard/withDrawal-form" },
     ],
     Buyer: [
-      { label: "Home", icon: FaUserShield, link: "/" },
-      { label: "Add New Tasks", icon: FaTasks, link: "/dashboard/add-task" },
-      { label: "My Tasks", icon: FaClipboardList, link: "/dashboard/my-task" },
-      { label: "Purchase Coin", icon: FaCoins, link: "/dashboard/purchase-coin" },
-      { label: "Payment History", icon: FaWallet, link: "/dashboard/paymenthistory" },
+      { label: "Total Paid",  task:state?.totalPaid, icon: FaUserShield},
+      { label: "Total Pending Task", task:state?.pendingWorkers, icon: FaTasks},
+      { label: "All Tasks", task:state?.totalTasks, icon: FaClipboardList },
+      { label: "Wallet", task: user?.wallet, icon: FaWallet},
     ],
     Admin: [
       { label: "Home", icon: FaUserShield, link: "/dashboard/home" },
@@ -70,7 +99,7 @@ const AchievementSection = () => {
               <h4 className="font-semibold text-gray-800 mb-1 group-hover:text-blue-600">
                 {item.label}
               </h4>
-              <p className="text-xs text-gray-500">Go to {item.label}</p>
+              <p className="text-xs text-gray-500"> {item.task || 0}</p>
             </a>
           ))}
         </div>
@@ -79,4 +108,4 @@ const AchievementSection = () => {
   );
 };
 
-export default AchievementSection;
+export default DashBoardProfile;

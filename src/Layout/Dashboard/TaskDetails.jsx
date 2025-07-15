@@ -64,21 +64,56 @@ const TaskDetails = () => {
   if (!task) return <p className="text-center mt-10 text-red-600">Task not found!</p>;
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded">
-      <h2 className="text-3xl font-bold mb-4">{task.task_title}</h2>
-      {/* <img src={task.task_image_url} alt="task" className="mb-4 w-full h-64 object-cover rounded" /> */}
-      <p><strong>Email:</strong> {task.buyer}</p>
-      <p><strong>Details:</strong> {task.task_detail}</p>
-      <p><strong>Required Workers Left:</strong> {task.worker}</p>
-      <p><strong>Pay Per Task:</strong> {task.payable_amount} coins</p>
-      <p><strong>Deadline:</strong> {task.completion_date?.split("T")[0]}</p>
-      <p><strong>What to submit:</strong> {task.submission_info}</p>
+  <div className="max-w-4xl mx-auto px-4 py-8">
+    <div className="bg-white shadow-xl rounded-2xl p-6 md:p-10 border border-gray-100">
+      <h2 className="text-3xl md:text-4xl font-bold text-blue-700 mb-6">
+        {task.task_title}
+      </h2>
 
-      <form onSubmit={handleSubmit} className="mt-6">
-        <label className="block mb-2 font-semibold">Your Submission:</label>
+      <div className="space-y-4 text-gray-700 leading-relaxed">
+        <div className="flex flex-col sm:flex-row gap-2">
+          <span className="font-semibold w-48">👤 Buyer Name:</span>
+          <span>{task.buyer_name || "N/A"}</span>
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-2">
+          <span className="font-semibold w-48">📧 Buyer Email:</span>
+          <span>{task.buyer}</span>
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-2">
+          <span className="font-semibold w-48">📝 Task Details:</span>
+          <span>{task.task_detail}</span>
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-2">
+          <span className="font-semibold w-48">👥 Workers Left:</span>
+          <span>{task.worker}</span>
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-2">
+          <span className="font-semibold w-48">💰 Pay per Task:</span>
+          <span>{task.payable_amount} coins</span>
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-2">
+          <span className="font-semibold w-48">⏰ Deadline:</span>
+          <span>{task.completion_date?.split("T")[0]}</span>
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-2">
+          <span className="font-semibold w-48">📦 Submission Info:</span>
+          <span>{task.submission_info}</span>
+        </div>
+      </div>
+
+      <form onSubmit={handleSubmit} className="mt-10">
+        <label className="block mb-3 font-semibold text-lg text-gray-800">
+          Your Submission:
+        </label>
         <textarea
-          className="w-full p-3 border border-gray-300 rounded focus:outline-blue-500"
-          rows="5"
+          className="w-full p-4 border border-gray-300 rounded-lg focus:outline-blue-500 focus:ring-2 focus:ring-blue-200 transition resize-none"
+          rows="6"
           placeholder="Enter your submission details (e.g., proof, description, link, etc.)"
           name="submissoinData"
           required
@@ -86,13 +121,16 @@ const TaskDetails = () => {
 
         <button
           type="submit"
-          className="mt-4 bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition"
+          className="mt-6 bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-3 rounded-lg transition-all shadow-sm"
         >
-          Submit Task
+          ✅ Submit Task
         </button>
       </form>
     </div>
-  );
+  </div>
+);
+
+
 };
 
 export default TaskDetails;

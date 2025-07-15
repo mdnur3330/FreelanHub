@@ -1,6 +1,7 @@
 import React from 'react';
 import MenuItem from './MenuItem';
 import { MdAccountBalanceWallet, MdCheckCircleOutline, MdChecklist } from 'react-icons/md';
+import { ImUpload2 } from "react-icons/im";
 
 const WorkerHome = () => {
     return (
@@ -21,7 +22,7 @@ const WorkerHome = () => {
                     address='withDrawal-form'
                   />
             <MenuItem
-                    icon={MdAccountBalanceWallet}
+                    icon={ImUpload2}
                     label='My Submisson'
                     address='my-submisson'
                   />

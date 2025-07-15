@@ -3,7 +3,7 @@ import WorkerHome from './WorkerHome';
 import BuyerHome from './BuyerHome';
 import AdminHome from './AdminHome';
 import useRoll from '../../Hooqs/getRol';
-import { MdChecklist } from 'react-icons/md';
+import { CgProfile } from "react-icons/cg";
 import MenuItem from './MenuItem';
 
 const Sidebar = () => {
@@ -11,7 +11,7 @@ const Sidebar = () => {
     return (
         <div>
             <MenuItem
-                    icon={MdChecklist}
+                    icon={CgProfile}
                     label='Profile'
                     address='/dashboard'
                   />
@@ -19,7 +19,7 @@ const Sidebar = () => {
             {role?.role === "Buyer" &&  <BuyerHome></BuyerHome>}
             {role?.role === "admin" &&  <AdminHome></AdminHome>}
            
-        
+      
         </div>
     );
 };

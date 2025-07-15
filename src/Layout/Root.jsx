@@ -11,6 +11,7 @@ import ContactSupport from '../Page/ContactSupport';
 import BlogNews from '../Page/BlogNews';
 import Footer from '../Component/Footer';
 
+
 const Root = () => {
     return (
         <div>

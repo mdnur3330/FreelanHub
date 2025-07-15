@@ -44,7 +44,7 @@ const PurchaseCoin = () => {
                   {option.coins} Coins
                 </h3>
                 <p className="text-lg text-blue-600 font-semibold">${option.price}</p>
-                <button className="flex items-center gap-2 mt-3 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full transition">
+                <button className="flex items-center gap-2 mt-3 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full transition  cursor-pointer">
                   Buy Now <FaArrowRight className="text-sm" />
                 </button>
               </div>

@@ -1,6 +1,7 @@
 import React, {  useContext } from 'react';
 import { AuthContext } from './AuthProvider';
 import { Navigate, useLocation } from 'react-router';
+import TaskBazaarLoading from '../Component/Loading';
 
 
 const PrivateRoute = ({children}) => {
@@ -8,7 +9,7 @@ const PrivateRoute = ({children}) => {
     const location = useLocation()
 
     if(loading){
-        return "loading...."
+        return <TaskBazaarLoading></TaskBazaarLoading>
     }
 
     if(!user){

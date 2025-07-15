@@ -21,6 +21,7 @@ import ManageUsers from "../Layout/Dashboard/Admin/ManageUsers";
 import ManageTask from "../Layout/Dashboard/Admin/ManageTask";
 import DashBoardProfile from "../Layout/Dashboard/DashBoardProfile";
 import MySubmisson from "../Layout/Dashboard/Worker/MySubmission";
+import PrivateRoute from "../providers/PrivateRoute";
 
 export const ruter = createBrowserRouter([
     {path:'/',
@@ -29,7 +30,7 @@ export const ruter = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element: <DashboardLayout></DashboardLayout>,
+        element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
         children:[
             {index: true,
                 element:<DashBoardProfile></DashBoardProfile>

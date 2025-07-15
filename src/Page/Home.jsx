@@ -19,7 +19,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white py-12 px-4">
+    <div className="bg-gradient-to-br from-blue-50 to-white py-15 px-4">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl font-bold text-center text-blue-700 mb-10 flex justify-center items-center gap-2">
           <FaMedal className="text-yellow-500 text-3xl" />

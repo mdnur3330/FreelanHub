@@ -19,7 +19,7 @@ const PurchaseCoin = () => {
   };
 
   return (
-    <div className="min-h-[80vh] bg-gradient-to-b from-blue-50 to-white py-14 px-4">
+    <div className="bg-gradient-to-b from-blue-50 to-white py-15 px-4">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-extrabold text-center text-blue-700 mb-4">
           💰 Buy Coins & Boost Your Power

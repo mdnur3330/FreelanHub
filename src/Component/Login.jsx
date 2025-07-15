@@ -3,25 +3,25 @@ import logo from '../assets/Grow Your Business With Us!.png'
 import { AuthContext } from '../providers/AuthProvider';
 import { FcGoogle } from "react-icons/fc";
 import Swal from 'sweetalert2';
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 import axios from 'axios';
 const Login = () => {
+  const navigate = useNavigate()
   const {signIN, signInWithGoogle} = useContext(AuthContext)
 
   const handelLogin = async (e)=>{
+    
     e.preventDefault()
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
 
-    
+
     try{
       const result = await signIN(email,password)
       console.log("after login",result);
       form.reset()
-
-
-    
+      navigate("/dashboard");
     }catch(error){
       console.log(error);
       Swal.fire({
@@ -29,6 +29,7 @@ const Login = () => {
               text: "You're now logged in. Manage your tasks, check your submissions, and keep growing your earnings.",
               icon: "success",
             });
+            
        Swal.fire({
               text: error.message,
               icon: "error",
@@ -53,6 +54,7 @@ const Login = () => {
         userInfo
       );
       console.log(data);
+      navigate("/dashboard")
     }catch(error){
       console.log(error);
     }

@@ -43,7 +43,7 @@ const SignUp = () => {
       await createUserByEmail(email, password);
       await axiosSecure.post("/user-data", user);
       reset();
-      navigate("/");
+      navigate("/dashboard");
       Swal.fire(
         `🎉 Welcome ${name}`,
         "Your account has been created!",
