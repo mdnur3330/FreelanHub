@@ -1,84 +1,62 @@
-# 🌐 TaskBazaar – Micro Task & Earning Platform
+# 🎯TaskBazaar is a Micro Work Marketplace
 
-Welcome to **TaskBazaar**, a MERN-based micro-tasking and earning platform where users can post tasks, complete micro-jobs, earn coins, and withdraw payments. The platform supports multi-role dashboards (Admin, Worker, Buyer), Stripe integration, and full authentication.
+**🔗 Live Site**: [micro-work-marketplase.web.app](https://micro-work-marketplase.web.app/)
 
-### 🔑 Admin Credentials
+---
 
-- **Username / Email**: 
-- **Password**: 
+## 🧾 Project Overview
 
-### 🔗 Live Site URL
-
-
+A full-stack micro-task platform where Buyers can post tasks and Workers can complete them for rewards. Built for speed, scalability, and real-world utility – perfect for micro freelancers and task-based hiring.
 
 ---
 
 ## 🚀 Key Features
 
-- ✅ **Multi-role login** system (Admin, Buyer, Worker)
-- ✅ **JWT-based secure authentication**
-- ✅ **Post & manage micro tasks** (by Buyer)
-- ✅ **Apply to tasks & earn coins** (by Worker)
-- ✅ **Admin dashboard** to manage users, transactions & system stats
-- ✅ **Coin-based reward system** for tracking earnings
-- ✅ **Stripe integration** for purchasing coins
-- ✅ **Withdraw request & approval system**
-- ✅ **Interactive UI** with React & TailwindCSS
-- ✅ **Responsive design** for mobile, tablet, and desktop
-- ✅ **Real-time dashboard statistics** and notifications
+- 🔐 **Firebase Authentication** (Google & Email/Password)
+- 🧑‍💼 **Multi-role Dashboard** (Admin, Buyer, Worker)
+- 📋 **Task Posting & Submission** system
+- 💳 **Stripe Payment Integration**
+- 🔔 **Real-time Notifications** on task status
+- 💰 **Withdrawal System** for Workers
+- 🖼️ **Responsive UI** with modern design and animations
+- 📦 Built using essential **npm packages**
 
 ---
 
-## 🧰 Technologies Used
+## 🛠️ Tech Stack
 
-### 🔧 Frontend (Client)
-- React.js
-- Tailwind CSS
-- React Router DOM
-- Axios
-- React Icons
-- Framer Motion (optional animations)
-- Firebase Hosting & Authentication
+- **Frontend**: React.js, React Router, Tailwind CSS
+- **State Management**: React Context API
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB (with Mongoose)
+- **Authentication**: Firebase Auth + Firebase Admin SDK
+- **Payment**: Stripe
+- **Deployment**: 
+  - Client: Firebase Hosting  
+  - Server: Vercel
 
-### 🖥️ Backend (Server)
-- Node.js
-- Express.js
-- MongoDB + Mongoose
-- JSON Web Token (JWT)
-- Stripe (for payments)
-- CORS, dotenv, cookie-parser, helmet
+### 📦 Major npm Packages Used
 
----
-
-## 📦 NPM Packages Used
-
-Total: **22+ npm packages**  
-Most used ones:
-- `react`, `react-dom`
-- `axios`
-- `react-router-dom`
-- `react-icons`
-- `jsonwebtoken`
-- `mongoose`
-- `stripe`
-- `cors`, `dotenv`
-- `firebase`
-- `cookie-parser`, `helmet`, `bcrypt`
+- `axios` – API calls  
+- `firebase` – Authentication & Admin SDK  
+- `react-hook-form` – Form handling  
+- `sweetalert2` – Alert & modal  
+- `framer-motion` – Animation  
+- `jwt-decode` – Decode access tokens  
+- `stripe` & `@stripe/react-stripe-js` – Stripe integration  
+- `dotenv` – Environment variables  
+- `cors`, `express`, `mongoose`, `jsonwebtoken` – Server-side utilities
 
 ---
 
-## 🤝 Contributing to TaskBazaar
+## 👨‍💻 How to Join as a Developer
 
-We welcome contributions! Follow these steps to get started:
+We welcome passionate developers to contribute and grow with us! Here's how you can get started:
 
-1. **Fork** the repository
-2. **Clone** the forked repo:  
-   `git clone https://github.com/yourusername/taskbazaar.git`
-3. Navigate to the project folder:  
-   `cd taskbazaar`
-4. Install dependencies for client & server:
+1. **Fork the repository**  
+   Click on the "Fork" button at the top-right of the GitHub repo.
+
+2. **Clone your forked repo**  
    ```bash
-   cd client
-   npm install
-   cd ../server
-   npm install
+   git clone https://github.com/your-username/micro-work-marketplace.git
+   cd micro-work-marketplace

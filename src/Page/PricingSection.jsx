@@ -1,6 +1,10 @@
 import { useNavigate } from "react-router";
 import { FaCoins, FaArrowRight } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { useContext } from "react";
+import { AuthContext } from "../providers/AuthProvider";
+import useRoll from "../Hooqs/getRol";
+import Swal from "sweetalert2";
 
 const coinOptions = [
   { coins: 150, price: 10 },
@@ -11,11 +15,19 @@ const coinOptions = [
 
 const PurchaseCoin = () => {
   const navigate = useNavigate();
+  const [role] = useRoll()
 
   const handlePurchase = (option) => {
-    navigate(`/dashboard/purchase-coin/payment/${option.price}`, {
+    if(role?.role === "Buyer"){
+      navigate(`/dashboard/purchase-coin/payment/${option.price}`, {
       state: option,
     });
+    }else{
+      Swal.fire(
+        "You Need Buyer Account"
+      )
+    }
+
   };
 
   return (

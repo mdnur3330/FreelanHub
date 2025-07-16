@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router";
 import Root from "../Layout/Root";
 import Login from "../Component/Login";
 import DashboardLayout from "../Layout/DashboardLayout";
-import Hero from "../Page/Hero";
 import MyTasks from "../Layout/Dashboard/Buyer/MyTasks";
 import AddNewTasks from "../Layout/Dashboard/Buyer/AddNewTasks";
 import PurchaseCoin from "../Layout/Dashboard/Buyer/PurchaseCoin";

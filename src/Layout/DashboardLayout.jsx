@@ -2,7 +2,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import { Outlet } from "react-router";
+import { Navigate, Outlet, useNavigate } from "react-router";
 import Sidebar from "./Dashboard/Sidebar";
 import {
   BellIcon,
@@ -18,6 +18,7 @@ const DashboardLayout = () => {
   const [notifications, setNotifications] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
   const popupRef = useRef(null);
+  const navegate = useNavigate()
 
   useEffect(() => {
     refetchUser();
@@ -51,6 +52,10 @@ useEffect(() => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  const goToHome = ()=>{
+    navegate('/')
+  }
+
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-gray-50 to-blue-50">
       {/* Header */}
@@ -69,9 +74,9 @@ useEffect(() => {
             </button>
             <div className="flex items-center gap-2 min-w-[32px]">
               <div className="w-3 h-3 rounded-full bg-blue-600 md:w-4 md:h-4" />
-              <span className="hidden sm:inline text-xl md:text-2xl font-extrabold text-blue-700 tracking-tight">
+              <button onClick={goToHome} className="cursor-pointer hidden sm:inline text-xl md:text-2xl font-extrabold text-blue-700 tracking-tight">
                 TaskBazaar
-              </span>
+              </button>
             </div>
           </div>
 
@@ -122,11 +127,12 @@ useEffect(() => {
                   alt="User"
                   className="w-10 h-10 rounded-full border-2 border-blue-500 object-cover"
                 />
-                <div className="text-sm leading-tight text-right truncate">
+                <div className="text-sm leading-tight  truncate">
                   <div className="text-gray-800 font-semibold truncate">{userData?.name}</div>
                   <div className="text-xs text-gray-500 truncate">{user?.email}</div>
                   <div className="text-xs text-blue-600 font-semibold">
-                    Coin: <span className="font-bold">{userData?.coin}</span>
+                    Coin: <span className="font-bold mr-2">{userData?.coin}</span>
+                    Role: <span className="font-bold">{userData?.role}</span>
                   </div>
                 </div>
               </div>

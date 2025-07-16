@@ -8,25 +8,25 @@ import { FaQuoteLeft } from "react-icons/fa";
 const testimonials = [
   {
     id: 1,
-    name: "Mohammad Rahim",
+    name: "Mohammad Nur Alom",
     role: "Frontend Developer",
-    image: "https://i.ibb.co/DgFMpNv/profile-placeholder.jpg",
+    image: "https://i.ibb.co/G3JgYmzF/Whats-App-Image-2025-06-25-at-16-43-48-49200f82.jpg",
     review:
       "TaskBazaar helped me improve my skills and earn from real-world projects. The platform is clean, intuitive, and highly effective!",
   },
   {
     id: 2,
-    name: "Fatema Akter",
+    name: "Mohamma Fahim",
     role: "UI Designer",
-    image: "https://i.ibb.co/DgFMpNv/profile-placeholder.jpg",
+    image: "https://i.ibb.co/6c6V63Qx/download-2.jpg",
     review:
       "The quick support and coin-based reward system make this my favorite freelancing platform!",
   },
   {
     id: 3,
-    name: "John Doe",
+    name: "Rasel Ahmed",
     role: "Fullstack Engineer",
-    image: "https://i.ibb.co/DgFMpNv/profile-placeholder.jpg",
+    image: "https://i.ibb.co/Y442rPSx/pexels-olly-927022.jpg",
     review:
       "Everything is streamlined and fast. TaskBazaar is truly revolutionary.",
   },

@@ -23,11 +23,11 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo & Name */}
           <Link to="/" className="flex items-center gap-2">
-            <img
+            {/* <img
               src="/favicon.png"
               alt="TaskBazaar"
               className="h-8 w-8 object-cover"
-            />
+            /> */}
             <span className="text-xl font-bold text-purple-700 hidden sm:inline">
               TaskBazaar
             </span>
