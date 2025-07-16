@@ -36,9 +36,9 @@ const TaskToReview = () => {
     setIsModalOpen(true);
   };
 
-  const handleApprove = async (id) => {
+  const handleApprove = async (id, name) => {
     try {
-      const res = await axiosSecure.patch(`/update-submission-status/${id}`, { status: "approved" });
+      const res = await axiosSecure.patch(`/update-submission-status/${id}`, { status: "approved", buyer: name });
       console.log(res.data);
       if (res.data.matchedCount > 0) {
         setSubmissions(prev => prev.filter(task => task._id !== id));
@@ -91,7 +91,7 @@ const TaskToReview = () => {
                   </button>
                 </td>
                 <td className="py-2 px-4 space-x-2">
-                  <button onClick={() => handleApprove(sub._id)} className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">Approve</button>
+                  <button onClick={() => handleApprove(sub._id, sub.buyer_name)} className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">Approve</button>
                   <button onClick={() => handleReject(sub._id)} className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Reject</button>
                 </td>
               </tr>
