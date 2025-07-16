@@ -50,6 +50,36 @@ const ManageUsers = () => {
     }
   };
 
+
+  const handelChangeRole = async (value,id) => {
+  try {
+    const res = await axiosSecure.put(`/update-role/${id}`, { value });
+    if (res.data.modifiedCount) {
+      Swal.fire({
+        title: "Role Updated",
+        icon: "success",
+        timer: 1500,
+        showConfirmButton: false
+      });
+
+         setUsers((prevUsers) =>
+        prevUsers.map((user) =>
+          user._id === id ? { ...user, role: value } : user
+        )
+      );
+    }
+  } catch (error) {
+    console.error("Role update failed:", error);
+    Swal.fire({
+      title: "Failed to update role",
+      icon: "error",
+      timer: 1500,
+      showConfirmButton: false
+    });
+  }
+};
+
+
   
   return (
     <div className="p-4 md:p-8 bg-white shadow-xl rounded-xl">
@@ -77,17 +107,18 @@ const ManageUsers = () => {
                   />
                 </td>
                 <td className="p-3 border-b font-medium">
-                  {user.display_name}
+                  {user?.name}
                 </td>
                 <td className="p-3 border-b">{user?.email}</td>
                 <td className="p-3 border-b">
                   <select
                     className="border border-gray-300 rounded-md px-2 py-1 focus:outline-none"
-                    defaultValue={user.role}
+                   value={user.role}
+                    onChange={(e)=>handelChangeRole(e.target.value,user._id)}
                   >
-                    <option>Admin</option>
-                    <option>Buyer</option>
-                    <option>Worker</option>
+                    <option value={"Admin"}>Admin</option>
+                    <option value={"Buyer"}>Buyer</option>
+                    <option value={"Worker"}>Worker</option>
                   </select>
                 </td>
                 <td className="p-3 border-b">{user.coin}</td>

@@ -51,6 +51,7 @@ const SignUp = () => {
       );
     } catch (error) {
       Swal.fire("Error", error.message, "error");
+      console.log(error);
     } finally {
       setLoading(false);
     }

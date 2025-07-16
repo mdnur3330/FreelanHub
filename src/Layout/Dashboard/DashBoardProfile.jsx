@@ -5,8 +5,8 @@ import {
   FaClipboardList,
   FaMoneyBillWave,
   FaUsers,
-  FaUserEdit,
   FaWallet,
+  FaCoins,
 } from "react-icons/fa";
 import useRoll from "../../Hooqs/getRol";
 import { useEffect } from "react";
@@ -44,6 +44,20 @@ const DashBoardProfile = () => {
         }
 
     },[user?.role])
+
+
+    useEffect(()=>{
+        if(user?.role === "Admin"){
+            const getStates = async ()=>{
+                const res = await axiosSecure('/admin-stats')
+                setState(res.data)
+            }
+            getStates()
+        }else{
+            return 
+        }
+
+    },[user?.role])
 console.log(state);
   // Define role-based items
   const roleItems = {
@@ -51,7 +65,7 @@ console.log(state);
       { label: "Total Submission", task:state?.allTask, icon: FaUserShield},
       { label: "Total pending submission", task:state?.pendingTask, icon: FaTasks},
       { label: "Total Coin Earning", task:state?.totalEarning, icon: FaClipboardList},
-      { label: "Withdrawals", icon: FaMoneyBillWave, link: "/dashboard/withDrawal-form" },
+      { label: "Withdrawals", icon: FaMoneyBillWave},
     ],
     Buyer: [
       { label: "Total Paid",  task:state?.totalPaid, icon: FaUserShield},
@@ -60,9 +74,10 @@ console.log(state);
       { label: "Wallet", task: user?.wallet, icon: FaWallet},
     ],
     Admin: [
-      { label: "Home", icon: FaUserShield, link: "/dashboard/home" },
-      { label: "Manage Users", icon: FaUsers, link: "/dashboard/manage-users" },
-      { label: "Manage Tasks", icon: FaUserEdit, link: "/dashboard/manage-tasks" },
+      { label: "Total Worker",task:state?.totalWorker, icon: FaUserShield},
+      { label: "Total Buyer", task:state?.totalBuyer, icon: FaUsers},
+      { label: "Total Payments", task:state?.totalPayments, icon: FaMoneyBillWave},
+      { label: "Total Coin", task:state?.totalCoin, icon: FaCoins},
     ],
   };
 

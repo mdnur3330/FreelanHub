@@ -17,9 +17,7 @@ const Sidebar = () => {
                   />
             {role?.role === "Worker" && <WorkerHome></WorkerHome>}
             {role?.role === "Buyer" &&  <BuyerHome></BuyerHome>}
-            {role?.role === "admin" &&  <AdminHome></AdminHome>}
-           
-      
+            {role?.role === "Admin" &&  <AdminHome></AdminHome>}
         </div>
     );
 };
