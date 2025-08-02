@@ -5,6 +5,7 @@ import AdminHome from './AdminHome';
 import useRoll from '../../Hooqs/getRol';
 import { CgProfile } from "react-icons/cg";
 import MenuItem from './MenuItem';
+import { GoArrowRight } from "react-icons/go";
 
 const Sidebar = () => {
     const [role] = useRoll()
@@ -18,6 +19,11 @@ const Sidebar = () => {
             {role?.role === "Worker" && <WorkerHome></WorkerHome>}
             {role?.role === "Buyer" &&  <BuyerHome></BuyerHome>}
             {role?.role === "Admin" &&  <AdminHome></AdminHome>}
+            <MenuItem
+                    icon={GoArrowRight}
+                    label='Go to home'
+                    address='/'
+                  />
         </div>
     );
 };

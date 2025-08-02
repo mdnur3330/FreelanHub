@@ -37,7 +37,7 @@ const BlogNews = () => {
               className="bg-blue-50 hover:bg-white border border-blue-100 hover:shadow-lg rounded-xl p-6 transition"
             >
               <div className="mb-4">{item.icon}</div>
-              <h3 className="text-xl font-semibold mb-2 text-blue-800">{item.title}</h3>
+              <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
               <p className="text-gray-600">{item.description}</p>
             </div>
           ))}

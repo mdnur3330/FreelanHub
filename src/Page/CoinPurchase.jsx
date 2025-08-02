@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import useRoll from "../Hooqs/getRol";
 import Swal from "sweetalert2";
+import Button from "../Component/SharedComponent/Button";
 
 const coinOptions = [
   { coins: 150, price: 10 },
@@ -13,7 +14,7 @@ const coinOptions = [
   { coins: 10, price: 1 },
 ];
 
-const PurchaseCoin = () => {
+const CoinPurchase = () => {
   const navigate = useNavigate();
   const [role] = useRoll()
 
@@ -33,8 +34,8 @@ const PurchaseCoin = () => {
   return (
     <div className="bg-gradient-to-b from-blue-50 to-white py-15 px-4">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-extrabold text-center text-blue-700 mb-4">
-          💰 Buy Coins & Boost Your Power
+        <h2 className="text-4xl font-extrabold text-center  mb-4">
+           Buy Coins & Boost Your Power
         </h2>
         <p className="text-center text-gray-600 mb-10 text-lg max-w-2xl mx-auto">
           Select a coin package that fits your goals. More coins mean more flexibility and earning potential!
@@ -47,17 +48,15 @@ const PurchaseCoin = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => handlePurchase(option)}
-              className="cursor-pointer p-6 bg-white rounded-2xl shadow-md border hover:border-blue-600 transition group"
+              className="cursor-pointer p-6 bg-white rounded-2xl shadow-md border transition group"
             >
               <div className="flex flex-col items-center space-y-4 text-center">
                 <FaCoins className="text-5xl text-yellow-400 group-hover:text-yellow-500 transition duration-200" />
-                <h3 className="text-2xl font-bold text-gray-800 group-hover:text-blue-700">
+                <h3 className="text-2xl font-bold">
                   {option.coins} Coins
                 </h3>
-                <p className="text-lg text-blue-600 font-semibold">${option.price}</p>
-                <button className="flex items-center gap-2 mt-3 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full transition">
-                  Buy Now <FaArrowRight className="text-sm" />
-                </button>
+                <p className="text-lg font-semibold">${option.price}</p>
+                <Button className="flex items-center gap-2 mt-3 bg-[#04B2B2] hover:bg-[#04B2B2] text-white px-5 py-2 rounded-full transition" label="Buy Now"/>
               </div>
             </motion.div>
           ))}
@@ -67,4 +66,5 @@ const PurchaseCoin = () => {
   );
 };
 
-export default PurchaseCoin;
+export default CoinPurchase;
+

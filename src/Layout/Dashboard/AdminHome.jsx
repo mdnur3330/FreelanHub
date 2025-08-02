@@ -7,11 +7,6 @@ const AdminHome = () => {
     return (
         <div>
             <MenuItem
-                    icon={MdDashboardCustomize}
-                    label='Admin Overview'
-                    address='admin-overview'
-                  />
-            <MenuItem
                     icon={MdRequestQuote}
                     label='Withdraw Request'
                     address='withdraw-request'

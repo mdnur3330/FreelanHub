@@ -1,31 +1,27 @@
 import React from 'react';
-import Navbar from '../Component/Navbar';
-import Hero from '../Page/Hero';
-import Home from '../Page/Home';
 import TestimonialSection from '../Page/Testimonial';
 import FeaturesSection from '../Page/FeaturesSection';
-import PurchaseCoin from '../Page/PricingSection';
+import PurchaseCoin from '../Page/CoinPurchase';
 import AboutUs from '../Page/AboutUs';
 import Statistics from '../Page/Statistics';
 import ContactSupport from '../Page/ContactSupport';
 import BlogNews from '../Page/BlogNews';
-import Footer from '../Component/Footer';
+import Banner from '../Page/Banner';
+import Home from '../Page/Home';
 
 
 const Root = () => {
     return (
         <div>
-        <Navbar></Navbar>
-        <Hero></Hero>
-        <Home></Home>
+        <Banner></Banner>
+        <Home />
+         <Statistics />
         <FeaturesSection></FeaturesSection>
         <TestimonialSection></TestimonialSection>
-        <PurchaseCoin></PurchaseCoin>
         <AboutUs></AboutUs>
-        <Statistics></Statistics>
         <ContactSupport></ContactSupport>
+        <PurchaseCoin></PurchaseCoin>
         <BlogNews></BlogNews>
-        <Footer></Footer>
         </div>
     );
 };

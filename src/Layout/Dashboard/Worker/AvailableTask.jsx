@@ -76,9 +76,9 @@ const AvailableTask = () => {
 
   return (
     <div className="p-5">
-      {loading && <p className="text-center text-blue-500 text-lg">Loading...</p>}
+      {loading && <p className="text-center text-[#1D3E3E] text-lg">Loading...</p>}
 
-      <h2 className="text-3xl font-bold mb-6 text-center text-blue-700">
+      <h2 className="text-3xl font-bold mb-6 text-center">
         📋 Available Tasks
       </h2>
 
@@ -125,7 +125,7 @@ const AvailableTask = () => {
               </p>
             ) : (
               <Link to={`/dashboard/task-details/${task._id}`}>
-                <button className="mt-4 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-all font-semibold">
+                <button className="mt-4 w-full bg-[#00C4CC] text-[#0F3C3C] py-2 rounded-lg hover:bg-[#00E0E0] transition-all font-semibold">
                   🔍 Apply Task
                 </button>
               </Link>

@@ -59,7 +59,7 @@ const SignUp = () => {
       <div className="bg-white shadow-lg rounded-2xl w-full max-w-4xl flex overflow-hidden">
         {/* Left Side */}
         <div className="bg-blue-700 text-white w-1/2 hidden md:flex flex-col justify-center items-center p-8">
-          <h2 className="text-3xl font-bold mb-4 text-center">Welcome to TaskBazaar</h2>
+          <h2 className="text-3xl font-bold mb-4 text-center">Welcome to FreelanHub</h2>
           <p className="text-lg text-center">Boost your productivity. Track tasks. Earn more.</p>
         </div>
 

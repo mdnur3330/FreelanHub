@@ -31,14 +31,14 @@ const MySubmisson = () => {
 
   return (
     <div className="p-4">
-      <h2 className="text-xl md:text-2xl font-semibold mb-4 text-center text-blue-700">
+      <h2 className="text-xl md:text-2xl font-semibold mb-4 text-center ">
         📌 My Task Submissions
       </h2>
 
       {/* Desktop Table */}
       <div className="hidden md:block overflow-x-auto">
         <table className="min-w-full table-auto border border-gray-200 shadow rounded">
-          <thead className="bg-blue-600 text-white">
+          <thead className="bg-[#1D3E3E] text-white">
             <tr>
               <th className="px-4 py-2 text-left">Image</th>
               <th className="px-4 py-2 text-left">Title</th>
@@ -64,7 +64,7 @@ const MySubmisson = () => {
                   <td className="px-4 py-2">{task.task_title}</td>
                   <td className="px-4 py-2">{task.buyer_name}</td>
                   <td className="px-4 py-2">{task.payable_amount}৳</td>
-                  <td className="px-4 py-2 capitalize font-medium text-blue-600">
+                  <td className="px-4 py-2 capitalize font-medium">
                     {task.status}
                   </td>
                 </tr>
@@ -95,7 +95,7 @@ const MySubmisson = () => {
                   className="w-16 h-16 object-cover rounded"
                 />
                 <div>
-                  <h3 className="font-semibold text-blue-700 text-lg">
+                  <h3 className="font-semibold text-lg">
                     {task.task_title}
                   </h3>
                   <p className="text-sm text-gray-600">
@@ -125,7 +125,7 @@ const MySubmisson = () => {
     className={`btn m-2 px-4 py-2 rounded-2xl transition-colors duration-200 ${
       currentPage === page
         ? "bg-yellow-500 text-black"
-        : "bg-indigo-500 text-white hover:bg-blue-600"
+        : "bg-[#1D3E3E] text-white"
     }`}
   >
     {page + 1}

@@ -6,7 +6,7 @@ const ContactSupport = () => {
     <section className="bg-gray-50 py-16 px-4 md:px-20">
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Contact Us</h2>
+        <h2 className="text-3xl font-bold text-center  mb-12">Contact Us</h2>
 
         {/* Contact Form + Map */}
         <div className="grid grid-cols-1 md:grid-cols-2 bg-white rounded-xl shadow-md overflow-hidden mb-16">
@@ -17,27 +17,27 @@ const ContactSupport = () => {
                 <input
                   type="text"
                   placeholder="Full Name"
-                  className="w-full p-3 border border-gray-300 rounded-md focus:outline-blue-500"
+                  className="w-full p-3 border border-gray-300 rounded-md "
                 />
                 <input
                   type="email"
                   placeholder="Email Address"
-                  className="w-full p-3 border border-gray-300 rounded-md focus:outline-blue-500"
+                  className="w-full p-3 border border-gray-300 rounded-md "
                 />
               </div>
               <input
                 type="text"
                 placeholder="Subject"
-                className="w-full p-3 border border-gray-300 rounded-md focus:outline-blue-500"
+                className="w-full p-3 border border-gray-300 rounded-md"
               />
               <textarea
                 rows="4"
                 placeholder="Message"
-                className="w-full p-3 border border-gray-300 rounded-md focus:outline-blue-500"
+                className="w-full p-3 border border-gray-300 rounded-md"
               ></textarea>
               <button
                 type="submit"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md transition"
+                className="text-white px-6 py-3 rounded-md transition"
               >
                 Send Message
               </button>
@@ -59,19 +59,19 @@ const ContactSupport = () => {
         {/* Contact Info */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-center text-gray-700">
           <div className="flex flex-col items-center gap-2">
-            <FaMapMarkerAlt className="text-2xl text-blue-600" />
+            <FaMapMarkerAlt className="text-2xl text-[#04B2B2]" />
             <p className="text-sm">Babuganj,Barisal,Banglades</p>
           </div>
           <div className="flex flex-col items-center gap-2">
-            <FaPhoneAlt className="text-2xl text-blue-600" />
+            <FaPhoneAlt className="text-2xl text-[#04B2B2]" />
             <p className="text-sm">+8801890536220</p>
           </div>
           <div className="flex flex-col items-center gap-2">
-            <FaEnvelope className="text-2xl text-blue-600" />
+            <FaEnvelope className="text-2xl text-[#04B2B2]" />
             <p className="text-sm">nuralom.web@gmail.com</p>
           </div>
           <div className="flex flex-col items-center gap-2">
-            <FaGlobe className="text-2xl text-blue-600" />
+            <FaGlobe className="text-2xl text-[#04B2B2]" />
             <p className="text-sm">https://zingy-alpaca-0e447b.netlify.app/</p>
           </div>
         </div>

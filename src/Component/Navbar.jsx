@@ -3,6 +3,10 @@ import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../providers/AuthProvider";
 import useRoll from "../Hooqs/getRol";
+import logo from '../assets/logo.svg'
+import { FiUser } from "react-icons/fi";
+import { BiUserPlus } from "react-icons/bi";
+import Button from "./SharedComponent/Button";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -18,19 +22,12 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="bg-[#1D3E3E] text-white shadow-md sticky top-0 left-0 right-0 z-50">
+      <div className="max-w-11/12 mx-auto sm:px-3 lg:px-5">
         <div className="flex justify-between items-center h-16">
           {/* Logo & Name */}
-          <Link to="/" className="flex items-center gap-2">
-            {/* <img
-              src="/favicon.png"
-              alt="TaskBazaar"
-              className="h-8 w-8 object-cover"
-            /> */}
-            <span className="text-xl font-bold text-purple-700 hidden sm:inline">
-              TaskBazaar
-            </span>
+          <Link to="/" className="items-center gap-2 hidden md:block">
+             <img src={logo} alt="" />
           </Link>
 
           {/* Navigation Right */}
@@ -40,58 +37,56 @@ const Navbar = () => {
                 {/* Dashboard */}
                 <Link
                   to="/dashboard"
-                  className="text-gray-700 hover:text-purple-600 font-medium transition"
+                  className="text-white font-medium transition"
                 >
                   Dashboard
                 </Link>
 
                 {/* Coin */}
-                <span className="text-gray-600 font-medium hidden sm:inline">
+                <span className="text-white font-medium">
                   💰 {role?.coin || 0} Coins
                 </span>
+
+                
 
                 {/* Profile & Logout */}
                 <div className="flex items-center gap-3">
                   <img
                     src={role?.img || "https://i.ibb.co/DgFMpNv/profile-placeholder.jpg"}
                     alt="Profile"
-                    className="h-9 w-9 rounded-full border-2 border-purple-500 object-cover"
+                    className="h-9 w-9 rounded-full border-2 object-cover"
                   />
-                  <button
-                    onClick={handleLogout}
-                    className="bg-purple-600 text-white px-4 py-2 rounded-md font-medium hover:bg-purple-700 transition"
-                  >
-                    Logout
-                  </button>
+              
+                  <Button onClick={handleLogout} className="text-white rounded-md font-medium bg-[#04B2B2] hover:bg-[#04b2b2c9] transition"  label="Logout"/>
                 </div>
               </>
             ) : (
               <>
-                {/* Login & Register */}
-                <Link
-                  to="/login"
-                  className="text-gray-700 hover:text-purple-600 font-medium transition"
-                >
-                  Login
-                </Link>
-                <Link
-                  to="/sign-up"
-                  className="text-gray-700 hover:text-purple-600 font-medium transition"
-                >
-                  Register
-                </Link>
-              </>
-            )}
 
-            {/* Join as Developer */}
+              {/* Join as Developer */}
             <a
               href={githubRepoLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-purple-600 text-white px-4 py-2 rounded-md font-medium hover:bg-purple-700 transition"
+              className="bg-[#04B2B2] text-white px-2 py-1 hidden md:block rounded-md font-medium hover:bg-[#04b2b2c9] transition"
             >
               Join as Developer
             </a>
+                {/* Login & Register */}
+                <Link
+                  to="/login"
+                  className="font-medium transition flex gap-3 items-center"
+                >
+                  <FiUser />Login
+                </Link>
+                <Link
+                  to="/sign-up"
+                  className="font-medium transition flex gap-3 items-center"
+                >
+                  <BiUserPlus /> Register
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </div>

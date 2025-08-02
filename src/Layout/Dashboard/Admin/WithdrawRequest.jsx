@@ -1,44 +1,47 @@
+
+
 import React, { useEffect, useState } from "react";
 import axiosSecure from "../../../Hooqs/useAxiosSecure";
 import Swal from "sweetalert2";
 
 const WithdrawRequest = () => {
-    const [withdrawData, setWithdrawData] = useState([])
+  const [withdrawData, setWithdrawData] = useState([]);
 
-  
-    useEffect(()=>{
-        const getData = async ()=>{
-            try{
-                const res = await axiosSecure('/withdraw')
-            console.log(res.data);
-            setWithdrawData(res.data)
-            }catch(error){
-                console.log(error);
-            }
-        }
-       getData()
-    },[])
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const res = await axiosSecure("/withdraw");
+        setWithdrawData(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getData();
+  }, []);
 
-
-     const handelApprovePayment = async (id,email,coin,amount)=>{
-      console.log(amount,email,coin);
-            try{
-           await axiosSecure.patch(`/withdraw-status/${id}`,{status: "approved", email, coin,amount})
-               Swal.fire(
-                      `🎉 Approved Payment Request`
-                    );
-                setWithdrawData((prev) => prev.filter((task) => task._id !== id));
-            }catch(error){
-              console.log(error);
-            }
-        }
-
+  const handelApprovePayment = async (id, email, coin, amount) => {
+    try {
+      await axiosSecure.patch(`/withdraw-status/${id}`, {
+        status: "approved",
+        email,
+        coin,
+        amount,
+      });
+      Swal.fire(`🎉 Approved Payment Request`);
+      setWithdrawData((prev) => prev.filter((task) => task._id !== id));
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="p-6 bg-white rounded-2xl shadow-md">
-      <h2 className="text-2xl font-bold mb-4 text-indigo-600">Withdraw Requests</h2>
+      <h2 className="text-2xl font-bold mb-4 text-indigo-600">
+        Withdraw Requests
+      </h2>
 
-      <div className="overflow-x-auto">
+      {/* ✅ Table view (for medium and larger screens) */}
+      <div className="overflow-x-auto hidden md:block">
         <table className="min-w-full divide-y divide-gray-200 text-sm">
           <thead className="bg-indigo-100 text-gray-700">
             <tr>
@@ -63,8 +66,16 @@ const WithdrawRequest = () => {
                   {req.status}
                 </td>
                 <td className="px-4 py-3">
-                  <button onClick={()=>handelApprovePayment(req._id, req.workerEmail, req.withdrawalCoin, req.withdrawal_amount)}
-                    className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition cursor-pointer"
+                  <button
+                    onClick={() =>
+                      handelApprovePayment(
+                        req._id,
+                        req.workerEmail,
+                        req.withdrawalCoin,
+                        req.withdrawal_amount
+                      )
+                    }
+                    className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition"
                   >
                     Payment Success
                   </button>
@@ -73,7 +84,10 @@ const WithdrawRequest = () => {
             ))}
             {withdrawData?.length === 0 && (
               <tr>
-                <td colSpan="7" className="px-4 py-6 text-center text-gray-400">
+                <td
+                  colSpan="7"
+                  className="px-4 py-6 text-center text-gray-400"
+                >
                   No pending requests found.
                 </td>
               </tr>
@@ -81,9 +95,60 @@ const WithdrawRequest = () => {
           </tbody>
         </table>
       </div>
+
+      {/* ✅ Card view (for small screens) */}
+      <div className="grid gap-4 md:hidden">
+        {withdrawData?.length === 0 ? (
+          <p className="text-center text-gray-400 py-4">
+            No pending requests found.
+          </p>
+        ) : (
+          withdrawData?.map((req) => (
+            <div
+              key={req._id}
+              className="border rounded-lg shadow-md p-4 space-y-2"
+            >
+              <p>
+                <span className="font-semibold">User:</span> {req.workerName}
+              </p>
+              <p>
+                <span className="font-semibold">Email:</span>{" "}
+                {req.workerEmail}
+              </p>
+              <p>
+                <span className="font-semibold">Amount:</span>{" "}
+                {req.withdrawalCoin} coins
+              </p>
+              <p>
+                <span className="font-semibold">Payment Method:</span>{" "}
+                {req.payment_system}
+              </p>
+              <p>
+                <span className="font-semibold">Account No:</span>{" "}
+                {req.account}
+              </p>
+              <p className="capitalize font-semibold text-yellow-600">
+                Status: {req.status}
+              </p>
+              <button
+                onClick={() =>
+                  handelApprovePayment(
+                    req._id,
+                    req.workerEmail,
+                    req.withdrawalCoin,
+                    req.withdrawal_amount
+                  )
+                }
+                className="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg transition"
+              >
+                Payment Success
+              </button>
+            </div>
+          ))
+        )}
+      </div>
     </div>
   );
 };
 
 export default WithdrawRequest;
-

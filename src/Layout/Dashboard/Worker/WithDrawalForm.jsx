@@ -46,7 +46,7 @@ const WithdrawForm = () => {
           icon: "success",
           title: "Withdraw Request Sent 🎉",
           text: "We will process your request soon!",
-          confirmButtonColor: "#6366F1",
+          confirmButtonColor: "[#1D3E3E]",
         });
         form.reset();
         setTotal(0);
@@ -67,7 +67,7 @@ const WithdrawForm = () => {
 
   return (
     <div className="max-w-lg mx-auto mt-12 p-8 bg-gradient-to-br from-white via-indigo-50 to-white rounded-3xl shadow-xl border border-indigo-100 space-y-6 transition-all duration-300">
-      <h2 className="text-3xl font-extrabold text-center text-indigo-700">
+      <h2 className="text-3xl font-extrabold text-center">
         💸 Request Withdraw
       </h2>
 
@@ -165,7 +165,7 @@ const WithdrawForm = () => {
           className={`w-full py-3 font-semibold rounded-xl text-white shadow-lg transition-all duration-300 ${
             isDisabled
               ? "bg-gray-400 cursor-not-allowed"
-              : "bg-indigo-600 hover:bg-indigo-700"
+              : "bg-[#00C2C2] hover:bg-[#00C2C2] "
           }`}
         >
           🚀 Request Withdrawal

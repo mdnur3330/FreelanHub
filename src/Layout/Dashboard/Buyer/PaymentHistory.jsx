@@ -68,12 +68,12 @@ const BuyerPaymentHistory = () => {
 
   return (
     <div className="p-6 bg-white shadow-lg rounded-2xl overflow-x-auto border border-blue-100">
-      <h2 className="text-2xl font-semibold text-blue-700 mb-6 text-center">
+      <h2 className="text-2xl font-semibold mb-6 text-center">
         Payment History
       </h2>
 
       <table className="min-w-full text-sm text-left border-separate border-spacing-y-2">
-        <thead className="text-blue-700 uppercase bg-blue-50 rounded">
+        <thead className="uppercase bg-blue-50 rounded">
           <tr>
             <th className="px-4 py-3">Date</th>
             <th className="px-4 py-3">Coin</th>

@@ -1,62 +1,43 @@
-# 🎯TaskBazaar is a Micro Work Marketplace
+# FreelanHub - Micro Tasking & Earning Platform
 
-**🔗 Live Site**: [micro-work-marketplase.web.app](https://micro-work-marketplase.web.app/)
+**Live Site:** [micro-work-marketplase.web.app](https://micro-work-marketplase.web.app/)
 
----
+ 
 
-## 🧾 Project Overview
+FreelanHub is a dynamic, full-stack micro-tasking platform built with the MERN stack. Inspired by platforms like Picoworkers and Clickworker, it enables users to earn coins by completing tasks, while buyers can post and manage paid tasks. Admins maintain overall platform functionality and user integrity.
 
-A full-stack micro-task platform where Buyers can post tasks and Workers can complete them for rewards. Built for speed, scalability, and real-world utility – perfect for micro freelancers and task-based hiring.
+## 🚀 Features
 
----
+- 🔐 **Multi-Role Authentication**: Role-based login and registration (Worker, Buyer, Admin) with JWT-secured APIs.
+- 💼 **Role-Based Dashboards**: Unique dashboards for each role with real-time statistics and task management.
+- 💸 **Coin-Based Payment System**: Coin rewards for workers and Stripe-based coin purchase system for buyers.
+- 📤 **Task Creation & Submission**: Buyers can create tasks with images, workers can submit tasks with proof.
+- 📥 **Submission Review**: Buyers can approve/reject submissions, triggering coin changes and notifications.
+- 🔄 **Withdrawal System**: Workers can withdraw coins as real money via bKash, Rocket, Nagad.
+- 📬 **Notification System**: Realtime pop-up notifications for submissions, approvals, and withdrawals.
+- 📈 **Admin Panel**: Manage users, roles, withdrawals, and platform-wide data with full control.
+- 🧾 **My Submission Pagination**: Paginated task submissions for worker dashboard.
+- 🖼️ **Image Upload with imgBB**: Upload task images and user profile pictures via imgBB API.
+- 🌐 **Join as Developer Button**: Directs users to the client-side GitHub repository.
+- 📱 **Fully Responsive Design**: Seamless experience across mobile, tablet, and desktop devices.
+- ⚠️ **Secure Routing**: Private routes persist login after page reload using Firebase & JWT.
+- 🛡️ **Middleware Authorization**: Role-based access protection for all private routes (401, 403 handling).
+- 📊 **Statistics Tracking**: Admins and users see detailed task counts, coin balances, and payment summaries.
+- 🧮 **Business Logic for Earnings**: Buyer buys 10 coins for $1; worker withdraws 20 coins for $1 (platform profit).
+- 📦 **MongoDB Integration**: All users, tasks, submissions, coins, and withdrawal data stored in MongoDB.
+- 🔐 **Environment Secured**: Firebase, MongoDB, and Stripe keys hidden via `.env` variables.
+- ❌ **No Lorem Ipsum Used**: All content is meaningful and purpose-driven.
+- 🔁 **Persistent Auth**: Auth state is preserved on page reload for all private routes.
 
-## 🚀 Key Features
+## 🔧 Tech Stack
 
-- 🔐 **Firebase Authentication** (Google & Email/Password)
-- 🧑‍💼 **Multi-role Dashboard** (Admin, Buyer, Worker)
-- 📋 **Task Posting & Submission** system
-- 💳 **Stripe Payment Integration**
-- 🔔 **Real-time Notifications** on task status
-- 💰 **Withdrawal System** for Workers
-- 🖼️ **Responsive UI** with modern design and animations
-- 📦 Built using essential **npm packages**
-
----
-
-## 🛠️ Tech Stack
-
-- **Frontend**: React.js, React Router, Tailwind CSS
-- **State Management**: React Context API
-- **Backend**: Node.js, Express.js
-- **Database**: MongoDB (with Mongoose)
-- **Authentication**: Firebase Auth + Firebase Admin SDK
-- **Payment**: Stripe
-- **Deployment**: 
-  - Client: Firebase Hosting  
-  - Server: Vercel
-
-### 📦 Major npm Packages Used
-
-- `axios` – API calls  
-- `firebase` – Authentication & Admin SDK  
-- `react-hook-form` – Form handling  
-- `sweetalert2` – Alert & modal  
-- `framer-motion` – Animation  
-- `jwt-decode` – Decode access tokens  
-- `stripe` & `@stripe/react-stripe-js` – Stripe integration  
-- `dotenv` – Environment variables  
-- `cors`, `express`, `mongoose`, `jsonwebtoken` – Server-side utilities
+**Frontend:** React.js, Tailwind CSS, Firebase Auth, Framer Motion, HeroIcons  
+**Backend:** Node.js, Express.js, MongoDB, JWT  
+**Tools/APIs:** Firebase, Stripe, imgBB, Axios, React Hook Form, Swiper, React Responsive Carousel  
+**Deployment:** Firebase (Client), Vercel (Server)
 
 ---
 
-## 👨‍💻 How to Join as a Developer
 
-We welcome passionate developers to contribute and grow with us! Here's how you can get started:
 
-1. **Fork the repository**  
-   Click on the "Fork" button at the top-right of the GitHub repo.
 
-2. **Clone your forked repo**  
-   ```bash
-   git clone https://github.com/your-username/micro-work-marketplace.git
-   cd micro-work-marketplace

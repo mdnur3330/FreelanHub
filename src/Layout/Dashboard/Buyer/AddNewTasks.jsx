@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import axiosSecure from "../../../Hooqs/useAxiosSecure";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { useNavigate } from "react-router";
+import Button from "../../../Component/SharedComponent/Button";
 
 const AddNewTasks = () => {
   const navigate = useNavigate()
@@ -54,7 +55,7 @@ const AddNewTasks = () => {
 
   return (
     <div className="max-w-3xl mx-auto px-6 pb-6 bg-white rounded-xl">
-      <h2 className="text-2xl font-bold mb-6 text-center text-blue-700">
+      <h2 className="text-2xl font-bold mb-6 text-center">
         Create a New Task
       </h2>
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -138,11 +139,12 @@ const AddNewTasks = () => {
         </div>
 
         <button
-          type="submit"
-          className="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition cursor-pointer"
+          type=""
+         
         >
-          Submit Task
+          
         </button>
+        <Button label="Submit Task" type="submit" className="w-full bg-[#04B2B2] hover:bg-[#04b2b2c9] transition text-white py-2 px-4 roundedcursor-pointer"/>
       </form>
     </div>
   );

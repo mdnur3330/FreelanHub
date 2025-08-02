@@ -175,12 +175,12 @@ const MyTasks = () => {
 
   return (
     <div className="w-full px-4 py-6">
-      <h2 className="text-xl font-semibold mb-4 text-center text-blue-700">My Tasks</h2>
+      <h2 className="text-xl font-semibold mb-4 text-center">My Tasks</h2>
 
       {/* Desktop Table View */}
       <div className="hidden md:block overflow-x-auto bg-white rounded-xl shadow border border-gray-200">
         <table className="min-w-full table-auto text-sm text-gray-700">
-          <thead className="bg-blue-600 text-white">
+          <thead className="bg-[#1D3E3E] text-white">
             <tr>
               <th className="px-4 py-2">Image</th>
               <th className="px-4 py-2">Title</th>

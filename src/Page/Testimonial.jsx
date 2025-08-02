@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
@@ -34,12 +35,12 @@ const testimonials = [
 
 const TestimonialSection = () => {
   return (
-    <section className="bg-gradient-to-br from-blue-50 to-white py-16 px-4">
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-blue-700 mb-3">
-          What Our Users Say
+    <section className="bg-gradient-to-br from-[#ecfeff] to-white py-20 px-4">
+      <div className="max-w-5xl mx-auto text-center">
+        <h2 className="text-4xl font-extrabold mb-3">
+           What Our Users Say
         </h2>
-        <p className="text-gray-600 mb-8 max-w-xl mx-auto">
+        <p className="text-[#5a6e73] mb-10 max-w-2xl mx-auto text-lg">
           Hear from the talented workers and satisfied buyers who use TaskBazaar.
         </p>
 
@@ -49,22 +50,25 @@ const TestimonialSection = () => {
           slidesPerView={1}
           loop={true}
           pagination={{ clickable: true }}
-          autoplay={{ delay: 4000 }}
+          autoplay={{ delay: 5000 }}
         >
           {testimonials.map(({ id, name, role, image, review }) => (
             <SwiperSlide key={id}>
-              <div className="bg-white rounded-xl p-6 shadow-lg max-w-2xl mx-auto">
-                <FaQuoteLeft className="text-blue-500 text-3xl mb-4" />
-                <p className="text-gray-700 italic mb-6">"{review}"</p>
+              <div className="relative bg-[#0E3A3A]/80  text-white rounded-2xl p-8 shadow-2xl max-w-3xl mx-auto">
+                <p className="text-lg italic mb-8 leading-relaxed z-10 relative">
+                  “{review}”
+                </p>
                 <div className="flex items-center justify-center gap-4">
                   <img
                     src={image}
                     alt={name}
-                    className="w-14 h-14 rounded-full border-2 border-blue-600"
+                    className="w-14 h-14 rounded-full border-2 border-[#29BEBE] object-cover"
                   />
                   <div className="text-left">
-                    <h4 className="font-semibold text-blue-700">{name}</h4>
-                    <p className="text-sm text-gray-500">{role}</p>
+                    <h4 className="font-semibold text-[#A0F8F8] text-md">
+                      {name}
+                    </h4>
+                    <p className="text-sm text-gray-300">{role}</p>
                   </div>
                 </div>
               </div>

@@ -39,6 +39,7 @@ const Login = () => {
   const handelGooglLogin = async () => {
     try {
       const result = await signInWithGoogle();
+      navigate("/dashboard");
       const user = result.user;
 
       const userInfo = {
@@ -60,7 +61,7 @@ const Login = () => {
       <div className="w-full max-w-4xl bg-white shadow-xl rounded-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2">
         {/* Left Image or Text Side */}
         <div className="hidden md:flex flex-col items-center justify-center bg-blue-700 text-white p-8">
-          <h2 className="text-3xl font-bold mb-4">Welcome to TaskBazaar</h2>
+          <h2 className="text-3xl font-bold mb-4">Welcome to FreelanHub</h2>
           <p className="text-lg">Boost your productivity. Track tasks. Earn more.</p>
         </div>
 

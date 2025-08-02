@@ -10,7 +10,6 @@ import UpdateTask from "../Layout/Dashboard/Buyer/UpdateTask";
 import TaskDetails from "../Layout/Dashboard/TaskDetails";
 import TaskToReview from "../Layout/Dashboard/Buyer/TaskToReview";
 import MyApprovedTask from "../Layout/Dashboard/Worker/MyApprovedTask";
-import AdminOverview from "../Layout/Dashboard/Admin/AdminOverview";
 import SignUp from "../Component/SignUp";
 import Payment from "../Layout/Dashboard/Buyer/Payment";
 import BuyerPaymentHistory from "../Layout/Dashboard/Buyer/PaymentHistory";
@@ -21,11 +20,25 @@ import ManageTask from "../Layout/Dashboard/Admin/ManageTask";
 import DashBoardProfile from "../Layout/Dashboard/DashBoardProfile";
 import MySubmisson from "../Layout/Dashboard/Worker/MySubmission";
 import PrivateRoute from "../providers/PrivateRoute";
+import AllWorker from "../Page/AllWorker";
+import Task from "../Page/Task";
+import Root1 from "../Layout/Root1";
 
 export const ruter = createBrowserRouter([
     {path:'/',
-     element: <Root></Root>,
-
+     element: <Root1></Root1>,
+        children: [
+            {index: "/", 
+                element: <Root></Root>
+            },
+            {path: "/all-worker",
+                element: <AllWorker></AllWorker>,
+                loader: ()=>fetch(`${import.meta.env.VITE_KEY_api}/get-all-user`)
+            },
+            {path: "/all-task",
+                element: <Task></Task>
+            }
+        ]
     },
     {
         path: '/dashboard',
@@ -79,10 +92,6 @@ export const ruter = createBrowserRouter([
             {
                 path: 'approved-task',
                 element: <MyApprovedTask></MyApprovedTask>
-            },
-            {
-                path: 'admin-overview',
-                element: <AdminOverview></AdminOverview>
             },
             {
                 path: 'withdraw-request',
