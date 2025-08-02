@@ -9,7 +9,7 @@ const AboutUs = () => {
           About Us
         </h2>
         <p className="text-center text-lg md:text-xl mb-14 text-gray-600 max-w-3xl mx-auto">
-          <strong>TaskBazaar</strong> is an innovative online platform dedicated to solving everyday problems through the power of technology. We believe that the right tools, guidance, and support can simplify lives and make a lasting impact.
+          <strong>FreelanHub</strong> is an innovative online platform dedicated to solving everyday problems through the power of technology. We believe that the right tools, guidance, and support can simplify lives and make a lasting impact.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

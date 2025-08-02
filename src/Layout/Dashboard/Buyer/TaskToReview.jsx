@@ -39,7 +39,7 @@ const TaskToReview = () => {
   const handleApprove = async (id, name) => {
     try {
       const res = await axiosSecure.patch(`/update-submission-status/${id}`, { status: "approved", buyer: name });
-      console.log(res.data);
+   
       if (res.data.matchedCount > 0) {
         setSubmissions(prev => prev.filter(task => task._id !== id));
          Swal.fire(

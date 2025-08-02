@@ -24,7 +24,7 @@ const FeaturesSection = () => {
     <section className="bg-[#1D3E3E] py-16 px-4 md:px-10">
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-          Why Choose <span className="text-[#A2FFFA]">TaskBazaar?</span>
+          Why Choose <span className="text-[#A2FFFA]">FreelanHub?</span>
         </h2>
         <p className="text-white/80 max-w-2xl mx-auto mb-12">
           Explore the benefits of using our secure and efficient platform, built for smooth collaboration and productivity.

@@ -23,7 +23,7 @@ const AddNewTasks = () => {
     taskData.total = total;
     taskData.buyer = user.email;
     taskData.buyer_name = roll.user;
-       console.log(taskData);
+   
 
     if (total > coin) {
       Swal.fire({
@@ -41,7 +41,6 @@ const AddNewTasks = () => {
 
     try {
       const result = await axiosSecure.post("/add-task", taskData);
-      console.log(result);
             Swal.fire({
         title: "Task Added",
         text: "Your task has been successfully created.",

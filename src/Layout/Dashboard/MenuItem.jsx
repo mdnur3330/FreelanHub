@@ -1,26 +1,3 @@
-
-// import { NavLink } from 'react-router';
-
-// const MenuItem = ({ label, address, icon: Icon }) => {
-//   return (
-//     <NavLink
-//       to={address}
-//       end
-//       className={({ isActive }) =>
-//         `flex items-center gap-3 px-4 py-3 my-2 rounded-lg transition-all duration-200 
-//         ${isActive 
-//           ? 'bg-blue-100 text-blue-700 font-semibold shadow-sm' 
-//           : 'text-gray-600 hover:bg-gray-100 hover:text-blue-600'
-//         }`
-//       }
-//     >
-//       <Icon className='w-6 h-6 shrink-0' />
-//       <span className='truncate'>{label}</span>
-//     </NavLink>
-//   );
-// };
-
-// export default MenuItem;
 import { NavLink } from 'react-router';
 
 const MenuItem = ({ label, address, icon: Icon }) => {

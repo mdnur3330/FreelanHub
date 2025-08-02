@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 
 const UpdateTask = () => {
     const {id} = useParams()
-    console.log("params teke",id);
+
     const [task, setTask] = useState()
 
     useEffect(()=>{
@@ -26,9 +26,9 @@ const UpdateTask = () => {
       const fData = e.target;
       const makeObj = new FormData(fData)
       const updateTask = Object.fromEntries(makeObj.entries())
-      console.log(updateTask);
+ 
         const res = await axiosSecure.put(`/update-task/${id}`, updateTask)
-        console.log(res.data);
+
         if(res.data.matchedCount){
           Swal.fire({
                 title: "Updated!",

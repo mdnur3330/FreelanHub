@@ -37,7 +37,7 @@ const ContactSupport = () => {
               ></textarea>
               <button
                 type="submit"
-                className="text-white px-6 py-3 rounded-md transition"
+                className="text-white bg-[#04B2B2] px-6 py-3 rounded-md transition"
               >
                 Send Message
               </button>

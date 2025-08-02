@@ -40,7 +40,7 @@ const WithdrawForm = () => {
 
     try {
       const res = await axiosSecure.post(`/withdraw/${userData?.email}`, withdrawInfo);
-      console.log(res.data);
+
       if (res.data.post.acknowledged) {
         Swal.fire({
           icon: "success",

@@ -22,7 +22,7 @@ const MySubmisson = () => {
 
     setMyTask(res.data.tasks);
     setTotalTasks(res.data.totalTasks);
-    console.log(res.data.tasks, res.data.totalTasks);
+  
   };
   fetchTasks();
 }, [currentPage,perPage, user?.email]);

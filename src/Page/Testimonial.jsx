@@ -1,10 +1,7 @@
-
-import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import { FaQuoteLeft } from "react-icons/fa";
 
 const testimonials = [
   {
@@ -41,7 +38,7 @@ const TestimonialSection = () => {
            What Our Users Say
         </h2>
         <p className="text-[#5a6e73] mb-10 max-w-2xl mx-auto text-lg">
-          Hear from the talented workers and satisfied buyers who use TaskBazaar.
+          Hear from the talented workers and satisfied buyers who use FreelanHub.
         </p>
 
         <Swiper
@@ -54,7 +51,7 @@ const TestimonialSection = () => {
         >
           {testimonials.map(({ id, name, role, image, review }) => (
             <SwiperSlide key={id}>
-              <div className="relative bg-[#0E3A3A]/80  text-white rounded-2xl p-8 shadow-2xl max-w-3xl mx-auto">
+              <div className="relative bg-[#0E3A3A]/80  text-white rounded-2xl p-8 max-w-3xl mx-auto">
                 <p className="text-lg italic mb-8 leading-relaxed z-10 relative">
                   “{review}”
                 </p>
